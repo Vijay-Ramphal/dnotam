@@ -1,0 +1,2539 @@
+<style>
+  input {
+    /* border: 1px solid black; */
+    text-transform: uppercase;
+    width: 95px;
+    padding-left: 1px;
+    padding-right: 1px;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 2rem;
+  }
+  textarea {
+    text-transform: uppercase;
+    margin-left: 15px;
+    font-size: 12px;
+  }
+  .fplTable {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .col-sm-1 {
+    width: 0.2%;
+    padding-right: 0px;
+    padding-right: 1px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+  .col-md-1 {
+    width: 65px;
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+  .a {
+    padding-right: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+  label {
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  select {
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  textarea {
+    text-transform: lowercase;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+  }
+</style>
+<div style="background-color:gainsboro;width:1170px;border:1px solid gray;margin-left:-15px;margin-top:-10px">
+  <div class="row">
+    <div class="col-lg-7 ex1" style="height: 50px;">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <label for="StartOfMsg" class="lbl-style">&nbsp;&nbsp;Start of Msg:&nbsp;&nbsp;</label>
+            </td>
+            <td>
+              <input type="text" id="StartMsgType" [(ngModel)]="startMsgType" readonly="readonly">
+            </td>
+            <td>
+              <label for="ChannelPrefix" class="lbl-style">&nbsp;&nbsp;Chnl Prefix:&nbsp;&nbsp;</label>
+            </td>
+            <td>
+              <input type="text" id="ChannelPrefix" maxlength="3" [(ngModel)]="channelPrefix" readonly="readonly">
+            </td>
+            <td>
+              <label for="SequenceNo" class="lbl-style">&nbsp;&nbsp;Csn No:&nbsp;&nbsp;</label>
+            </td>
+            <td>
+              <input type="text" id="SequenceNo" [(ngModel)]="sqnNo" maxlength="5" readonly="readonly">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-1 col-md-10">
+      <div class="row  tbl-bgcolor" style="margin-left:20px">
+        <label for="priority">Priority:</label>
+        <select name="singleSelect" class=" ng-pristine ng-untouched ng-valid ng-not-empty" id="ddlPriority" [(ngModel)]="priority">
+          <option value="SS">SS</option>
+          <option value="DD">DD</option>
+          <option value="FF">FF</option>
+          <option value="GG">GG</option>
+          <option value="KK">KK</option>
+        </select>
+      </div>
+    </div>
+    <div class="row tbl-bgcolor" style="margin-left:30px;">
+      <label for="DI"> AI:</label>
+      <tbody>
+        <tr>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI1" [(ngModel)]="DI1" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI1')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI2" [(ngModel)]="DI2" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI2')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI3" [(ngModel)]="DI3" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI3')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI4" [(ngModel)]="DI4" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI4')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI5" [(ngModel)]="DI5" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI5')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI6" [(ngModel)]="DI6" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI6')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI7" [(ngModel)]="DI7" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI7')">
+          </td>
+          <td style="padding:2px;width:20px;">
+              <button type="button" class="btn btn-default btn-round btn-just-icon" data-toggle="modal" (click)="displayGroups()" style="height:20px;padding-top: 2px;padding-bottom: 2px;padding-right: 2px;padding-left: 2px;margin-bottom: 0px;margin-top: 0px;">
+              <i class="material-icons">search</i>
+              <div class="ripple-container"></div>
+            </button>
+          </td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr style="padding-bottom: 5px;">
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI8" [(ngModel)]="DI8" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI8')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI9" [(ngModel)]="DI9" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI9')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI10" [(ngModel)]="DI10" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI10')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI11" [(ngModel)]="DI11" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI11')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI12" [(ngModel)]="DI12" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI12')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI13" [(ngModel)]="DI13" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI13')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI14" [(ngModel)]="DI14" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI14')">
+          </td>
+        </tr>
+        <tr style="padding-bottom: 5px;">
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI15" [(ngModel)]="DI15" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI15')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI16" [(ngModel)]="DI16" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI16')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI17" [(ngModel)]="DI17" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI17')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI18" [(ngModel)]="DI18" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI18')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI19" [(ngModel)]="DI19" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI19')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI20" [(ngModel)]="DI20" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI20')">
+          </td>
+          <td style="padding:2px;width:100px;">
+            <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+              id="DI21" [(ngModel)]="DI21" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI21')">
+          </td>
+        </tr>
+      </tbody>
+    </div>
+  </div>
+  <div class="row" style="height:40px">
+    <div class="col-lg-5">
+      <table class="table" style="margin-bottom: 0px;">
+        <tbody>
+          <tr>
+            <td class="td-padding">
+              <label for="DateTime" class="lbl-style">&nbsp;&nbsp;Filing Time:&nbsp;&nbsp;</label>
+              <input type="text" id="DI22" [(ngModel)]="currentDateTime" maxlength="6" (keypress)="numOnly($event)">
+            </td>
+            <td class="td-padding">
+              <label for="OriginIndicator" class="lbl-style">&nbsp;&nbsp;Origin Indicator:&nbsp;&nbsp;</label>
+              <input type="text" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-maxlength" (keypress)="alphaNum($event)"
+                id="OI23" [(ngModel)]="originIndicator" maxlength="8">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':groupdisplay}">
+  <div style="margin-left: 250px;  margin-right: 250px;  width: 900px;  margin-top: 120px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalGILabel">Group Indicators</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseHandled()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-2">
+            <label for="DI" class="lbl-style">
+              <b>Group List</b>
+            </label>
+            <select name="item" (change)="getAddressIndicators()" multiple style="height:100px;width:135px;" [(ngModel)]="selectedElement"
+              (ngModelChange)="onChange($event)">
+              <option *ngFor="let item of groupIndicators" [value]="item">{{item}}</option>
+            </select>
+          </div>
+          <div class="col-lg-10">
+            <label for="DI" class="lbl-style">
+              <b>Address Indicators</b>
+            </label>
+            <table>
+              <tbody>
+                <tr>
+                  <td *ngFor="let x of selectAI | slice:0:7" style="padding:2px;width:100px;">
+                    <input type="text" id="x.key" [(ngModel)]="x.value" readonly="readonly">
+                  </td>
+                </tr>
+                <tr>
+                  <td *ngFor="let x of selectAI | slice:7:14" style="padding:2px;width:100px;">
+                    <input type="text" id="x.key" [(ngModel)]="x.value" readonly="readonly">
+                  </td>
+                </tr>
+                <tr>
+                  <td *ngFor="let x of selectAI | slice:14" style="padding:2px;width:100px;">
+                    <input type="text" id="x.key" [(ngModel)]="x.value" readonly="readonly">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal" (click)="onCloseHandled()">Cancel</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal" (click)="submitGroupIndicator()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-8 col-md-12" style="margin-top:-12px">
+    <div class="nav-tabs" style="background-color:#9e9e9e;padding-left: 0px;padding-right: 0px;margin-top:12px">
+      <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+          <ul class="nav nav-tabs navbar-nav" data-tabs="tabs" style="background-color:#9e9e9e;font-size:13px;margin-left:-15px;height:25px;width:810px">
+            <li (click)="listClick(item.name)" *ngFor="let item of tabGroup; let i = index" [attr.data-index]="i">
+              <a data-toggle="tab" href="#{{item.name}}" [ngClass]="{ 'active': item.name == 'FREETXT'}" style="padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 5px;">
+                <strong style="color:white"> {{ item.name }} </strong>
+                <div class="ripple-container"></div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content" style="height: 340px;">
+      <div class="tab-content">
+        <div class="tab-pane active" id="FREETXT" style="margin-left:-28px;margin-top:-10px">
+          <table class="fplTable">
+            <tbody>
+              <tr>
+                <td>
+                  <textarea rows="16" cols="112" [(ngModel)]="aftnMessage" class="text-borderActive txt-uppercase txt "> </textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tab-pane "style="border:1px solid gray;width:780px " id="FPL">
+          <div class="row" style="width:805px;">
+            <div class="col-6 col-sm-1 ">
+
+              <br/>
+              <label id="fpl8" style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq ">
+              <label for="MsgType" class="">3 MessageType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="FPL" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="FPLAircraftID" [(ngModel)]="FPLAircraftID" (blur)="checkLength('FPLAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')">
+            </div>
+
+            <div class="col-6 col-sm-1 sss ">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="FPLSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="FPLSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('FPLSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="FPLSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('FPLSSRCode')" id="FPLSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+
+            <div class="col-6 col-sm-1 ">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+
+            <div class="col-6 col-sm-2 c qqq">
+              <label for="FlightRules" class="lbl-style">8 FlightRules*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('FPLFlightRules')"
+                [(ngModel)]="FPLFlightRules" maxlength="7" id="FPLFlightRules" (focus)="helpDisplay('FPLFlightRules')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-2 sss"style="margin-left:-24px">
+              <label for="TypeOfFlights" class="lbl-style">Type Of Flight*</label>
+              <br/>
+              <input type="text" (paste)="false" id="FPLTypeOfFlight" [(ngModel)]="FPLTypeOfFlight" maxlength="7" (keypress)="alphaOnly($event)"
+                (blur)="checkLength('FPLTypeOfFlight')" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLTypeOfFlight')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+          </div>
+
+          <div class="row" style="width:806px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="Number" class="lbl-style" style="font-size:11px">9 Aircraft Number</label>
+              <br/>
+              <input type="text" (paste)="false" (keypress)="numOnly($event)" id="FPLAirCraftNo" (blur)="checkLength('FPLAirCraftNo')"
+                [(ngModel)]="FPLAirCraftNo" maxlength="2" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAirCraftNo')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftType" class="lbl-style">AircraftType*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaNum($event)" (blur)="checkLength('FPLAircraftType')"
+                maxlength="4" id="FPLAircraftType" name="FPLAircraftType" [(ngModel)]="FPLAirCraftType" (focus)="helpDisplay('FPLAircraftType')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRCode" class="lbl-style">WakeTurbulenceCat</label>
+              <br/>
+              <input type="text" (paste)="false" id="FPLWakeTurbulenceCat" [(ngModel)]="FPLWakeTurbulenceCat" (blur)="checkLength('FPLWakeTurbulenceCat')"
+                (keypress)="alphaNum($event)" maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLWakeTurbulenceCat')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="FlightRules" class="lbl-style" style="font-size:11px">10 COM/NAV/APP</label>
+              <br/>
+              <input type="text" class="text-borderActive txt-uppercase txt" id="FPLSurEquip" [(ngModel)]="FPLSurEquip" (blur)="checkLength('FPLSurEquip')"
+                (keypress)="alphaNum($event)" (focus)="helpDisplay('FPLSurEquip')" (focusout)="emptyHelpDisplay()">
+            </div>
+
+            <div class="col-6 col-sm-2 sss"style="margin-left:-24px">
+              <label class="lbl-style">aid equipment*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" id="FPLRadEquip" (blur)="checkLength('FPLRadEquip')"
+                (keypress)="alphaNum($event)" [(ngModel)]="FPLRadEquip" (focus)="helpDisplay('FPLRadEquip')" (focusout)="emptyHelpDisplay()">
+            </div>
+          </div>
+          <div class="row"style="width:808px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq"style="margin-right:20px">
+              <label for="DepAerodrome" class="lbl-style">13 DEP Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('FPLDepAerodrome')"
+                [(ngModel)]="FPLDepAerodrome" maxlength="4" id="FPLDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row" style="width:886px;margin-left:-21px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="CruisingSpeed"  class="lbl-style">15 Cruising Speed*</label>
+              <br/>
+              <input type="text" (paste)="false"   class="text-borderActive txt-uppercase txt" id="FPLCruisingSpeed" [(ngModel)]="FPLCruisingSpeed"
+                (keypress)="alphaOnly($event)" (blur)="checkLength('FPLCruisingSpeed')" maxlength="5" (focus)="helpDisplay('FPLCruisingSpeed')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+           
+              <div class="col-6 col-sm-3 qqq">
+                <label for="CruisingLevel" id="Cruising" style="margin-left:-15px" class="lbl-style">Cruising Level*</label>
+                <br/>
+                <input type="text" (paste)="false" style="margin-left:-17px" class="text-borderActive txt-uppercase txt" id="FPLCruisingLevel" [(ngModel)]="FPLCruisingLevel"
+                  (keypress)="alphaOnly($event)" (blur)="checkLength('FPLCruisingLevel')" maxlength="5" (focus)="helpDisplay('FPLCruisingLevel')"
+                  (focusout)="emptyHelpDisplay()">
+              
+            </div>
+            <div class="col-6 col-sm-5 qqq">
+              <label for="Route" id="Route1" style="margin-left:-35px" class="lbl-style">Route*</label>
+              <br/>
+              <textarea rows="1" [(ngModel)]="routeMessage" id="route2" style="margin-left:-36px" class="text-borderActive txt-uppercase txt " (focus)="helpDisplay('Route2')"
+                (focusout)="emptyHelpDisplay()"> </textarea>
+              <!-- <textarea rows="1" [(ngModel)]="routeMessage" id="Route2" class="text-borderActive txt-uppercase txt "> </textarea> -->
+              <!-- <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('Route2')"
+              [(ngModel)]="Route2"id="Route2" (focus)="helpDisplay('Route2')" (focusout)="emptyHelpDisplay()" /> -->
+            </div>
+          </div>
+          <div class="row" style="width:812px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">
+                <b>16 DST Aero.&TotalEET*</b>
+              </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('FPLDSTAerodrome')"
+                [(ngModel)]="FPLDSTAerodrome" maxlength="4" id="FPLDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="FPL1stAltAerodrome1" class="lbl-style">
+                <b>1st Alt Aerodrome</b>
+              </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('FPL1stAltAerodrome')"
+                id="FPL1stAltAerodrome" [(ngModel)]="FPL1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-6 qqq">
+              <label for="2ndAltnAerodrome" id="FPL2ndAltAerodrome1" class="lbl-style">
+                <b>2nd Alt Aerodrome</b>
+              </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('FPL2ndAltAerodrome')"
+                id="FPL2ndAltAerodrome" [(ngModel)]="FPL2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+          </div>
+          <div class="row" style="width:809px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq">
+              <label for="OtherInfo" class="lbl-style">
+                <b>18 OtherInfo</b>
+              </label>
+              <br/>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage" id="otherInfoMessage" class="text-borderActive txt-uppercase txt" style="width:653px;margin-left:-2px"
+                (focus)="helpDisplay('otherInfoMessage')" (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+            
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+            </div>
+        </div>
+
+        <div class="tab-pane"  style="border:1px solid gray" id="CHG">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="CHG" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq ">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="CHGAircraftID" [(ngModel)]="CHGAircraftID" (blur)="checkLength('CHGAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss ">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2  qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="CHGSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="CHGSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('CHGSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="CHGSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('CHGSSRCode')" id="CHGSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 dd qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CHGDepAerodrome')"
+                [(ngModel)]="CHGDepAerodrome" maxlength="4" id="CHGDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row"style="width:761px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq" >
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">16DSTAero&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CHGDSTAerodrome')"
+                [(ngModel)]="CHGDSTAerodrome" maxlength="4" id="CHGDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+
+            <div class="col-6 col-sm-3 qqq" >
+              <label for="AltnAerodrome" id="Aerodrome1" style="margin-left:10px" class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false"  style="margin-left:10px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CHG1stAltAerodrome')"
+                id="CHG1stAltAerodrome" [(ngModel)]="CHG1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-6  qqq">
+              <label for="2ndAltnAerodrome" id="Aerodrome2" style="margin-left:12px"class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:12px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CHG2ndAltAerodrome')"
+                id="CHG2ndAltAerodrome" [(ngModel)]="CHG2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+          </div>
+          <div class="row"style="height: 85px;">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+
+            <div class="col-6 col-sm-3 qqq">
+              <label for="OtherInfo" class="lbl-style">22 Field Type</label>
+              <br/>
+              <select name="FieldType" id="CHGFieldType" name="CHGFieldType" [(ngModel)]="CHGFieldType" style="width:100px" (focus)="helpDisplay('CHGFieldType')"
+                (focusout)="emptyHelpDisplay()">
+                <option value="-7/">7 Aircraft Id</option>
+                <option value="-8/">8 Flight Rules and Type of Flight</option>
+                <option value="-9/">9 Type of Aircraft and Wake Turbulance Category</option>
+                <option value="-10/">10 Equipment and Capabilities</option>
+                <option value="-13/">13 Depature Aerodrome and Time </option>
+                <option value="-14/">14 Estimate Data</option>
+                <option value="-15/">15 Route </option>
+                <option value="-16/">16 Destination Aerodromeand Total EET,AltAerodrome</option>
+                <option value="-18/">18 Other Information</option>
+                <!-- <option value="Aircraft Id">7 Aircraft Id</option>
+                <option value="Flight Rules and Type of Flight">8 Flight Rules and Type of Flight</option>
+                <option value="Type of Aircraft and Wake Turbulance Category">9 Type of Aircraft and Wake Turbulance Category</option>
+                <option value="Equipment and Capabilities">10 Equipment and Capabilities</option>
+                <option value="Depature Aerodrome and Time">13 Depature Aerodrome and Time </option>
+                <option value="Estimate Data">14 Estimate Data</option>
+                <option value="Route">15 Route </option>
+                <option value="Destination Aerodromeand Total EET,AltAerodrome">16 Destination Aerodromeand Total EET,AltAerodrome</option>
+                <option value="Other Information">18 Other Information</option> -->
+              </select>
+            </div>
+
+            <div class="col-6 col-sm-3 qqq " >
+              <label for="OtherInfo" id="FildAmendment" class="lbl-style">Amendment</label>
+              <br/>
+              <input typr="text" style="width:180px" class="text-borderActive txt-uppercase txt" id="CHGFieldsAmendment" [(ngModel)]="CHGFieldType"
+                data-toggle="tooltip" mydata="CDNFieldsAmendment" (focus)="helpDisplay('CDNFieldsAmendment')">
+            </div>
+            <div class="col-3 col-sm-3 qqq ">
+              <button class="btn btn-default btn-round btn-sm" style="margin-left:30px;margin-top:20px" id="addthis" (click)="add()">Add</button>
+              <!-- <br/>
+              <button class="btn btn-default btn-round btn-sm" id="Remove"(click)="remove()">Remove</button>-->
+            </div>
+            <div class="col-6 col-sm-3 qqq" >
+              <label for="OtherInfo" id="FildAmendment" style="margin-left: -8px" class="lbl-style">Field & Amendment</label>
+              <br/>
+              <textarea rows="2" cols="24" style="margin-left: -10px"class="text-borderActive txt-uppercase txt" id="CHGFieldType1" [(ngModel)]="CHGFieldType1" data-toggle="tooltip"
+                mydata="CHGFieldType1" (focus)="helpDisplay('CDNFieldsAmendment')">{{CHGFieldType}}</textarea>
+            </div>
+            <div class="col-6 col-sm-1">
+              <!-- <div class="col-6 col-sm-1">
+                <br/>
+                <br/>
+              </div> -->
+
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:-10px">
+                <b>)</b>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane "style="border:1px solid gray" id="CNL">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="CNL" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="CNLAircraftID" [(ngModel)]="CNLAircraftID" (blur)="checkLength('CNLAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="CNLSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="CNLSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('CNLSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="CNLSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('CNLSSRCode')" id="CNLSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 ">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aerodrome & Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CNLDepAerodrome')"
+                [(ngModel)]="CNLDepAerodrome" maxlength="4" id="CNLDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row" style="width:762px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">16 DST Aero.&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CNLDSTAerodrome')"
+                [(ngModel)]="CNLDSTAerodrome" maxlength="4" id="CNLDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="cnl1" style="margin-left:10px"class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:10px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CNL1stAltAerodrome')"
+                id="CNL1stAltAerodrome" [(ngModel)]="CNL1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-6 qqq">
+              <label for="2ndAltnAerodrome" id="cnl2" style="margin-left:13px"class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CNL2ndAltAerodrome')"
+                id="CNL2ndAltAerodrome" [(ngModel)]="CNL2ndAltAerodrome"style="margin-left:13px" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+          </div>
+          <div class="row"style="width:755px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq" >
+              <label for="OtherInfo" class="lbl-style">18 OtherInfo</label>
+              <br/>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage" class="text-borderActive txt-uppercase txt" style="width:653px;margin-left:-2px" (focus)="helpDisplay('otherInfoMessage')"
+                (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+          
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+            
+          </div>
+        </div>
+
+        <div class="tab-pane "style="border:1px solid gray" id="DLA">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="DLA" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="DLAAircraftID" [(ngModel)]="DLAAircraftID" (blur)="checkLength('DLAAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="DLASSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="DLASSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('DLASSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="DLASSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('DLASSRCode')" id="DLASSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('DLADepAerodrome')"
+                [(ngModel)]="DLADepAerodrome" maxlength="4" id="DLADepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row"  style="width:762px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">16 DST Aero.&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('DLADSTAerodrome')"
+                [(ngModel)]="DLADSTAerodrome" maxlength="4" id="DLADSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="dla1"  style="margin-left:12px" class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false"  style="margin-left:12px"class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('DLA1stAltAerodrome')"
+                id="DLA1stAltAerodrome" [(ngModel)]="DLA1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-6 qqq">
+              <label for="2ndAltnAerodrome" id="dla2" style="margin-left:15px" class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false"  style="margin-left:15px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('DLA2ndAltAerodrome')"
+                id="DLA2ndAltAerodrome" [(ngModel)]="DLA2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+          </div>
+          <div class="row" 	  style="width:755px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq">
+              <label for="OtherInfo" class="lbl-style">18 OtherInfo</label>
+              <br/>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage" class="text-borderActive txt-uppercase txt" style="width:653px;margin-left:-2px" (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+           
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+         
+          </div>
+        </div>
+
+        <div class="tab-pane " style="border:1px solid gray" id="DEP">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="DEP" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="DEPAircraftID" [(ngModel)]="DEPAircraftID" (blur)="checkLength('DEPAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="DEPSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="DEPSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('DEPSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="DEPSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('DEPSSRCode')" id="DEPSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('DEPDepAerodrome')"
+                [(ngModel)]="DEPDepAerodrome" maxlength="4" id="DEPDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row" style="width:762px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">16 DST Aero.&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('DEPDSTAerodrome')"
+                [(ngModel)]="DEPDSTAerodrome" maxlength="4" id="DEPDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" ID="dep1" style="margin-left:12px" class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:12px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('DEP1stAltAerodrome')"
+                id="DEP1stAltAerodrome" [(ngModel)]="DEP1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-6 qqq">
+              <label for="2ndAltnAerodrome" id="dep2" style="margin-left:15px"class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:12px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('DEP2ndAltAerodrome')"
+                id="DEP2ndAltAerodrome" [(ngModel)]="DEP2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+          </div>
+          <div class="row" style="width:755px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq">
+              <label for="OtherInfo" class="lbl-style">18 OtherInfo</label>
+              <br/>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage" class="text-borderActive txt-uppercase txt" style="width:653px;margin-left:-2px" (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+          
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+           
+          </div>
+        </div>
+
+        <div class="tab-pane "style="border:1px solid gray"  id="ARR">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="ARR" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="ARRAircraftID" [(ngModel)]="ARRAircraftID" (blur)="checkLength('ARRAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="ARRSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="ARRSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('ARRSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="ARRSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('ARRSSRCode')" id="ARRSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ARRDepAerodrome')"
+                [(ngModel)]="ARRDepAerodrome" maxlength="4" id="ARRDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row" style="width:825px;">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DestAerodrome" class="lbl-style">17 ARR Aerodrome*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ARRAerodrome')"
+                [(ngModel)]="ARRAerodrome" maxlength="4" id="ARRAerodrome" (focus)="helpDisplay('ARRAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="ARRTime" id="arr1" style="margin-left:-5px"class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-5px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ARRTime')"
+                id="ARRTime" [(ngModel)]="ARRTime" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-5 qqq">
+              <label for="AltnAerodrome" id="arr2" style="margin-left:-15px" class="lbl-style" style="font-size:11px">ArrivalAero.(Non-ICAO Desig.)</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-10px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('AltnAerodrome')"
+                id="AltnAerodrome" [(ngModel)]="ARRArrivalAerodrome" maxlength="4" (focus)="helpDisplay('ARRArrivalAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>)</b>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane"style="border:1px solid gray" id="CPL">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="CPL" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="CPLAircraftID" [(ngModel)]="CPLAircraftID" (blur)="checkLength('CPLAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="CPLSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="CPLSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('CPLSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="CPLSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('CPLSSRCode')" id="CPLSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="FlightRules" class="lbl-style">8 FlightRules*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CPLFlightRules')"
+                [(ngModel)]="CPLFlightRules" maxlength="7" id="CPLFlightRules" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="TypeOfFlights" class="lbl-style">Type Of Flight*</label>
+              <br/>
+              <input type="text" (paste)="false" id="CPLTypeOfFlight" [(ngModel)]="CPLTypeOfFlight" maxlength="7" (keypress)="alphaOnly($event)"
+                (blur)="checkLength('CPLTypeOfFlight')" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="Number" class="lbl-style" style="font-size:11px">9 Aircraft Number</label>
+              <br/>
+              <input type="text" (paste)="false" (keypress)="numOnly($event)" id="CPLAirCraftNo" (blur)="checkLength('CPLAirCraftNo')"
+                [(ngModel)]="CPLAirCraftNo" maxlength="2" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftType" class="lbl-style">AircraftType*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaNum($event)" (blur)="checkLength('CPLAircraftType')"
+                maxlength="4" id="CPLAircraftType" name="CPLAircraftType" [(ngModel)]="CPLAirCraftType" (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRCode" class="lbl-style">WakeTurbulenceCat</label>
+              <br/>
+              <input type="text" (paste)="false" id="CPLWakeTurbulenceCat" [(ngModel)]="CPLWakeTurbulenceCat" (blur)="checkLength('CPLWakeTurbulenceCat')"
+                (keypress)="alphaNum($event)" maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="FlightRules" class="lbl-style" style="font-size:11px">10 COM/NAV/APP </label>
+              <br/>
+              <input type="text" class="text-borderActive txt-uppercase txt" id="CPLSurEquip" [(ngModel)]="CPLSurEquip" (blur)="checkLength('CPLSurEquip')"
+                (keypress)="alphaNum($event)" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+
+            <div class="col-6 col-sm-2 qqq">
+              <label class="lbl-style">aid equipment*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" id="CPLRadEquip" (blur)="checkLength('CPLRadEquip')"
+                (keypress)="alphaNum($event)" [(ngModel)]="CPLRadEquip" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+          </div>
+          <div class="row" style="width:783px">
+            <div class="col-6 col-sm-1">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 DEP Aero.&Time*</label>
+
+              <input type="text" (paste)="false" style="margin-left: 42px;margin-top:5px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)"
+                (blur)="checkLength('CPLDepAerodrome')" [(ngModel)]="CPLDepAerodrome" maxlength="4" id="CPLDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="BoundaryPoint" class="lbl-style" style="font-size:11px">14 Boundary point</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ESTBoundarypoint')"
+                [(ngModel)]="ESTBoundarypoint" maxlength="4" id="ESTBoundarypoint" (focus)="helpDisplay('ESTBoundarypoint')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="TimeatBP" class="lbl-style">Time at BP</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)" (blur)="checkLength('ESTTimeatBP')"
+                id="ESTTimeatBP" [(ngModel)]="ESTTimeatBP" maxlength="4" (focus)="helpDisplay('ESTTimeatBP')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="clearlevel" class="lbl-style">Clear Level</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ESTClearLevel')"
+                id="ESTClearLevel" [(ngModel)]="ESTClearLevel" maxlength="4" (focus)="helpDisplay('ESTClearLevel')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SCData" class="lbl-style">SC Data</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ESTSCData')"
+                id="ESTSCData" [(ngModel)]="ESTSCData" maxlength="4" (focus)="helpDisplay('ESTSCData')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+
+              <label for="SCCondition" class="lbl-style">SC Condition</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ESTSCCondition')"
+                id="ESTSCCondition" [(ngModel)]="ESTSCCondition" maxlength="4" (focus)="helpDisplay('ESTSCCondition')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+
+
+
+
+          <div class="row" style="width:789px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="CruisingSpeed" class="lbl-style">15 Cruising Speed*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" id="CPLCruisingSpeed" [(ngModel)]="CPLCruisingSpeed"
+                (keypress)="alphaOnly($event)" (blur)="checkLength('CPLCruisingSpeed')" maxlength="5" (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="CruisingLevel" id="cru1"   class="lbl-style">Cruising Level*</label>
+              <br/>
+              <input type="text" (paste)="false"  class="text-borderActive txt-uppercase txt" id="CPLCruisingLevel" [(ngModel)]="CPLCruisingLevel"
+                (keypress)="alphaOnly($event)" (blur)="checkLength('CPLCruisingLevel')" maxlength="5" (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-6 qqq">
+              <label for="Route" id="route1" style="margin-left:10px" class="lbl-style">Route*</label>
+              <br/>
+              <textarea rows="1" [(ngModel)]="routeMessage" style="margin-left:-2px" id="route2" class="text-borderActive txt-uppercase txt " (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+          </div>
+          <div class="row"style="width:790px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">16 DST Aero.&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CPLDSTAerodrome')"
+                [(ngModel)]="CPLDSTAerodrome" maxlength="4" id="CPLDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="cpl1"class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CPL1stAltAerodrome')"
+                id="CPL1stAltAerodrome" [(ngModel)]="CPL1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-6 qqq">
+              <label for="2ndAltnAerodrome" id="cpl2" class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CPL2ndAltAerodrome')"
+                id="CPL2ndAltAerodrome" [(ngModel)]="CPL2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+          </div>
+          <div class="row" style="width:784px">
+            <div class="col-6 col-sm-1">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq" style="padding-bottom: 1px;">
+              <label for="OtherInfo" class="lbl-style">18 OtherInfo</label>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage" class="text-borderActive txt-uppercase txt" style="width:400px;margin-left: 86px;margin-top:5px"
+                (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+  
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+           
+          </div>
+        </div>
+
+        <div class="tab-pane "  style="border:1px solid gray;" id="EST">
+          <div class="row" style="width:789px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="EST" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="ESTAircraftID" [(ngModel)]="ESTAircraftID" (blur)="checkLength('ESTAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="ESTSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="ESTSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('ESTSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="ESTSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('ESTSSRCode')" id="ESTSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 sss">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ESTDepAerodrome')"
+                [(ngModel)]="ESTDepAerodrome" maxlength="4" id="ESTDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="BoundaryPoint" class="lbl-style" style="font-size:11px">14 Boundary point</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ESTBoundarypoint')"
+                [(ngModel)]="ESTBoundarypoint" maxlength="4" id="ESTBoundarypoint" (focus)="helpDisplay('ESTBoundarypoint')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="TimeatBP" class="lbl-style">Time at BP</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)" (blur)="checkLength('ESTTimeatBP')"
+                id="ESTTimeatBP" [(ngModel)]="ESTTimeatBP" maxlength="4" (focus)="helpDisplay('ESTTimeatBP')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="clearlevel" class="lbl-style">Clear Level</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ESTClearLevel')"
+                id="ESTClearLevel" [(ngModel)]="ESTClearLevel" maxlength="4" (focus)="helpDisplay('ESTClearLevel')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SCData" class="lbl-style">SC Data</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ESTSCData')"
+                id="ESTSCData" [(ngModel)]="ESTSCData" maxlength="4" (focus)="helpDisplay('ESTSCData')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+
+              <label for="SCCondition" class="lbl-style">SC Condition</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ESTSCCondition')"
+                id="ESTSCCondition" [(ngModel)]="ESTSCCondition" maxlength="4" (focus)="helpDisplay('ESTSCCondition')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row"style="margin-left:-16px;width:791px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">16 DST Aero.&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ESTDSTAerodrome')"
+                [(ngModel)]="ESTDSTAerodrome" maxlength="4" id="ESTDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="arr1" class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('EST1stAltAerodrome')"
+                id="EST1stAltAerodrome" [(ngModel)]="EST1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-6 qqq">
+              <label for="2ndAltnAerodrome" id="arr2" class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('EST2ndAltAerodrome')"
+                id="EST2ndAltAerodrome" [(ngModel)]="EST2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+  
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+           
+          </div>
+        </div>
+
+        <div class="tab-pane " style="border:1px solid gray" id="CDN">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="CDN" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="CDNAircraftID" [(ngModel)]="CDNAircraftID" (blur)="checkLength('CDNAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="CDNSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="CDNSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('CDNSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="CDNSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('CDNSSRCode')" id="CDNSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CDNDepAerodrome')"
+                [(ngModel)]="CDNDepAerodrome" maxlength="4" id="CDNDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row" style="width:825px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">16 DST Aero.&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CDNDSTAerodrome')"
+                [(ngModel)]="CDNDSTAerodrome" maxlength="4" id="CDNDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="cdn1" style="margin-left:-8px"class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-8px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CDN1stAltAerodrome')"
+                id="CDN1stAltAerodrome" [(ngModel)]="CDN1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-5 qqq">
+              <label for="2ndAltnAerodrome" id="cdn2" style="margin-left:-12px" class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-12px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('CDN2ndAltAerodrome')"
+                id="CDN2ndAltAerodrome" [(ngModel)]="CDN2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="OtherInfo" class="lbl-style">22 Field Type</label>
+              <br/>
+              <select name="FieldType" id="CHGFieldType" name="CHGFieldType" [(ngModel)]="Fieldlocation" style="width:100px" (focus)="helpDisplay('CHGFieldType')"
+                (focusout)="emptyHelpDisplay()">
+                <!-- <option value="-7/">7 Aircraft Id</option>
+                <option value="-8/">8 Flight Rules and Type of Flight</option>
+                <option value="-9/">9 Type of Aircraft and Wake Turbulance Category</option>
+                <option value="-10/">10 Equipment and Capabilities</option>
+                <option value="-13/">13 Depature Aerodrome and Time </option>
+                <option value="-14/">14 Estimate Data</option>
+                <option value="-15/">15 Route </option>
+                <option value="-16/">16 Destination Aerodromeand Total EET,AltAerodrome</option>
+                <option value="-18/">18 Other Information</option>
+                <option value="Aircraft Id">7 Aircraft Id</option> -->
+                <option value="Flight Rules and Type of Flight">8 Flight Rules and Type of Flight</option>
+                <option value="Type of Aircraft and Wake Turbulance Category">9 Type of Aircraft and Wake Turbulance Category</option>
+                <option value="Equipment and Capabilities">10 Equipment and Capabilities</option>
+                <option value="Depature Aerodrome and Time">13 Depature Aerodrome and Time </option>
+                <option value="Estimate Data">14 Estimate Data</option>
+                <option value="Route">15 Route </option>
+                <option value="Destination Aerodromeand Total EET,AltAerodrome">16 Destination Aerodromeand Total EET,AltAerodrome</option>
+                <option value="Other Information">18 Other Information</option>
+              </select>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="OtherInfo" id="FildAmendment" class="lbl-style">Amendment</label>
+              <br/>
+              <input typr="text" style="width:180px" class="text-borderActive txt-uppercase txt" id="CHGFieldsAmendment" [(ngModel)]="CHGFieldType"
+                data-toggle="tooltip" mydata="CDNFieldsAmendment" (focus)="helpDisplay('CDNFieldsAmendment')">
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <button class="btn btn-default btn-round btn-sm" style="margin-top:20px;margin-left:15px" value="clickhere" id="addthis" onclick="add()">Add</button>
+            </div>
+           
+            <div class="col-6 col-sm-3 qqq">
+              <label for="OtherInfo" class="lbl-style ">Field&Amendment</label>
+              <br/>
+              <textarea rows="1" cols="20" style="margin-left:-10px" class="text-borderActive txt-uppercase txt " id="CDNFieldsAmendment" [(ngModel)]="Fieldlocation"
+                data-toggle="tooltip" mydata="CDNFieldsAmendment" (focus)="helpDisplay('CDNFieldsAmendment')" (focusout)="emptyHelpDisplay()"></textarea>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label id="cdn4" style="font-size:large">
+                <b>)</b>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane " style="border:1px solid gray" id="ACP">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="ACP" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="ACPAircraftID" [(ngModel)]="ACPAircraftID" (blur)="checkLength('ACPAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="ACPSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="ACPSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('ACPSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="ACPSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('ACPSSRCode')" id="ACPSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ACPDepAerodrome')"
+                [(ngModel)]="ACPDepAerodrome" maxlength="4" id="ACPDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row"style="width:825px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">16 DST Aero.&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ACPDSTAerodrome')"
+                [(ngModel)]="ACPDSTAerodrome" maxlength="4" id="ACPDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="acp1" style="margin-left:-10px" class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-10px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ACP1stAltAerodrome')"
+                id="ACP1stAltAerodrome" [(ngModel)]="ACP1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-5 qqq">
+              <label for="2ndAltnAerodrome" id="acp2" style="margin-left:-12px" class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-12px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('ACP2ndAltAerodrome')"
+                id="ACP2ndAltAerodrome" [(ngModel)]="ACP2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+           
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+          
+          </div>
+
+        </div>
+
+        <div class="tab-pane "  style="border:1px solid gray" id="RQP">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="RQP" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="RQPAircraftID" [(ngModel)]="RQPAircraftID" (blur)="checkLength('RQPAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="RQPSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="RQPSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('RQPSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="RQPSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('RQPSSRCode')" id="RQPSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('RQPDepAerodrome')"
+                [(ngModel)]="RQPDepAerodrome" maxlength="4" id="RQPDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row"style="width:825px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label class="lbl-style" style="font-size:11px">16 DST Aero.&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('RQPDSTAerodrome')"
+                [(ngModel)]="RQPDSTAerodrome" maxlength="4" id="RQPDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="rqp1" style="margin-left:-10px" class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-10px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('RQP1stAltAerodrome')"
+                id="RQP1stAltAerodrome" [(ngModel)]="RQP1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-5 qqq">
+              <label for="2ndAltnAerodrome" id="rqp2" style="margin-left:-12px"class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-12px"class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('RQP2ndAltAerodrome')"
+                id="RQP2ndAltAerodrome" [(ngModel)]="RQP2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+       
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+  
+          </div>
+        </div>
+
+        <div class="tab-pane " style="border:1px solid gray" id="RQS">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="RQS" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="RQSAircraftID" [(ngModel)]="RQSAircraftID" (blur)="checkLength('RQSAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="RQSSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="RQSSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('RQSSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="RQSSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('RQSSSRCode')" id="RQSSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('RQSDepAerodrome')"
+                [(ngModel)]="RQSDepAerodrome" maxlength="4" id="RQSDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row"  style="width:825px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">16 DST Aero.&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('RQSDSTAerodrome')"
+                [(ngModel)]="RQSDSTAerodrome" maxlength="4" id="RQSDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="rqs1"  style="margin-left:-10px"class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-10px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('RQS1stAltAerodrome')"
+                id="RQS1stAltAerodrome" [(ngModel)]="RQS1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-5 qqq">
+              <label for="2ndAltnAerodrome" id="rqs2" style="margin-left:-12px"class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-12px"class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('RQS2ndAltAerodrome')"
+                id="RQS2ndAltAerodrome" [(ngModel)]="RQS2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+            
+          </div>
+        </div>
+
+        <div class="tab-pane "  style="border:1px solid gray"id="SPL">
+          <div class="row">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="SPL" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="SPLAircraftID" [(ngModel)]="SPLAircraftID" (blur)="checkLength('SPLAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="SPLSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="SPLSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('SPLSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="SPLSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('SPLSSRCode')" id="SPLSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('SPLDepAerodrome')"
+                [(ngModel)]="SPLDepAerodrome" maxlength="4" id="SPLDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row"style="width:832px;margin-left:-21px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">16 DST Aero.&To.EET*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('SPLDSTAerodrome')"
+                [(ngModel)]="SPLDSTAerodrome" maxlength="4" id="SPLDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="spl1"style="margin-left:-10px" class="lbl-style">1st Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-10px"class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('SPL1stAltAerodrome')"
+                id="SPL1stAltAerodrome" [(ngModel)]="SPL1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-5 qqq">
+              <label for="2ndAltnAerodrome" id="spl2"style="margin-left:-12px" class="lbl-style">2nd Alt Aerodrome</label>
+              <br/>
+              <input type="text" (paste)="false"style="margin-left:-12px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('SPL2ndAltAerodrome')"
+                id="SPL2ndAltAerodrome" [(ngModel)]="SPL2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+          </div>
+          <div class="row"style="width:755px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq">
+              <label for="OtherInfo" class="lbl-style">18 OtherInfo</label>
+              <br/>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage" class="text-borderActive txt-uppercase txt" style="width:653px;margin-left:-2px" (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+          </div>
+          <div class="row" style="width:755px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq">
+              <label for="OtherInfo" class="lbl-style">19 OtherInfo</label>
+              <br/>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage2" class="text-borderActive txt-uppercase txt" style="width:653px;margin-left:-2px" (focus)="helpDisplay('FPLAircraftID')"
+                (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+           
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+        
+          </div>
+        </div>
+
+        <div class="tab-pane " style="border:1px solid gray;width:782px" id='ALR'>
+          <div class="row"style="width:783px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 ppp">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" style="width:40px" value="ALR" data-toggle="tooltip"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-14px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 eee">
+              <label for="AircraftID" class="lbl-style">5Desc.ofEmergency*</label>
+              <br/>
+              <input type="text" (paste)="false" id="FPLAircraftID" [(ngModel)]="FPLAircraftID" (blur)="checkLength('FPLAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 eee">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="SPLAircraftID" [(ngModel)]="SPLAircraftID" (blur)="checkLength('SPLAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 eee" style="padding-bottom:3px">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="SPLSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="SPLSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('SPLSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="SPLSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('SPLSSRCode')" id="SPLSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 eee ">
+              <label for="FlightRules" class="lbl-style">8 FlightRules*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('FPLFlightRules')"
+                [(ngModel)]="FPLFlightRules" maxlength="7" style="width: 70px" id="FPLFlightRules" (focus)="helpDisplay('FPLFlightRules')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-2 ppp">
+              <label for="TypeOfFlights" class="lbl-style">Type Of Flight*</label>
+              <br/>
+              <input type="text" (paste)="false" id="FPLTypeOfFlight" [(ngModel)]="FPLTypeOfFlight" maxlength="1" (keypress)="alphaOnly($event)"
+                (blur)="checkLength('FPLTypeOfFlight')" style="width:70px" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLTypeOfFlight')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+          </div>
+
+          <div class="row"style="width:797px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="Number" class="lbl-style" style="font-size:11px">9 Aircraft Number</label>
+              <br/>
+              <input type="text" (paste)="false" (keypress)="numOnly($event)" id="FPLAirCraftNo" (blur)="checkLength('FPLAirCraftNo')"
+                [(ngModel)]="FPLAirCraftNo" maxlength="2" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAirCraftNo')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <br/>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftType" class="lbl-style">AircraftType*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaNum($event)" (blur)="checkLength('FPLAircraftType')"
+                maxlength="4" id="FPLAircraftType" name="FPLAircraftType" [(ngModel)]="FPLAirCraftType" (focus)="helpDisplay('FPLAircraftType')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <br/>
+            </div>
+
+
+
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRCode" class="lbl-style">WakeTurbulenceCat</label>
+              <br/>
+              <input type="text" (paste)="false" id="FPLWakeTurbulenceCat" [(ngModel)]="FPLWakeTurbulenceCat" (blur)="checkLength('FPLWakeTurbulenceCat')"
+                (keypress)="alphaNum($event)" maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLWakeTurbulenceCat')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+            <!-- <div class="col-6 col-sm-1">
+              <br/>
+              <br/>
+          </div> -->
+
+
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+
+            <div class="col-6 col-sm-2 qqq">
+              <label for="FlightRules" class="lbl-style" style="font-size:11px">10 COM/NAV/APP</label>
+              <br/>
+              <input type="text" class="text-borderActive txt-uppercase txt" id="FPLSurEquip" [(ngModel)]="FPLSurEquip" (blur)="checkLength('FPLSurEquip')"
+                (keypress)="alphaNum($event)" (focus)="helpDisplay('FPLSurEquip')" (focusout)="emptyHelpDisplay()">
+            </div>
+
+            <div class="col-6 col-sm-2 www">
+              <label class="lbl-style">aid equipment*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" id="FPLRadEquip" (blur)="checkLength('FPLRadEquip')"
+                (keypress)="alphaNum($event)" [(ngModel)]="FPLRadEquip" (focus)="helpDisplay('FPLRadEquip')" (focusout)="emptyHelpDisplay()">
+            </div>
+          </div>
+          <div class="row"style="width:812px">
+            <div class="col-6 col-sm-1">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 DEP Aero.&Time*</label>
+
+              <!-- <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('FPLDepAerodrome')"
+                [(ngModel)]="FPLDepAerodrome" maxlength="4" id="FPLDepAerodrome"(focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"/>
+            </div> -->
+              <input type="text" (paste)="false" style="margin-left: 40px;margin-top:5px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)"
+                (blur)="checkLength('CPLDepAerodrome')" [(ngModel)]="CPLDepAerodrome" maxlength="4" id="CPLDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+
+          </div>
+          <div class="row"  style="width:890px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq2">
+              <label for="CruisingSpeed" class="lbl-style">15 Cruising Speed*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" id="FPLCruisingSpeed" [(ngModel)]="FPLCruisingSpeed"
+                (keypress)="alphaOnly($event)" (blur)="checkLength('FPLCruisingSpeed')" maxlength="5" (focus)="helpDisplay('FPLCruisingSpeed')"
+                (focusout)="emptyHelpDisplay()">
+            </div>
+         
+              <div class="col-6 col-sm-3 qqq">
+                <label for="CruisingLevel" id="Cruising" style="margin-left:-35px"class="lbl-style">Cruising Level*</label>
+                <br/>
+                <input type="text" (paste)="false" style="margin-left:-35px" class="text-borderActive txt-uppercase txt" id="FPLCruisingLevel" [(ngModel)]="FPLCruisingLevel"
+                  (keypress)="alphaOnly($event)" (blur)="checkLength('FPLCruisingLevel')" maxlength="5" (focus)="helpDisplay('FPLCruisingLevel')"
+                  (focusout)="emptyHelpDisplay()">
+              
+            </div>
+            <div class="col-6 col-sm-5 qqq">
+              <label for="Route" id="Route1"style="margin-left:-55px" class="lbl-style">Route*</label>
+              <br/>
+              <textarea rows="1" [(ngModel)]="routeMessage" style="margin-left:-55px"id="route2" class="text-borderActive txt-uppercase txt " (focus)="helpDisplay('Route2')"
+                (focusout)="emptyHelpDisplay()"> </textarea>
+              <!-- <textarea rows="1" [(ngModel)]="routeMessage" id="Route2" class="text-borderActive txt-uppercase txt "> </textarea> -->
+              <!-- <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('Route2')"
+              [(ngModel)]="Route2"id="Route2" (focus)="helpDisplay('Route2')" (focusout)="emptyHelpDisplay()" /> -->
+            </div>
+          </div>
+          <div class="row" style="width:890px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq2">
+              <label for="DepAerodrome" class="lbl-style" style="font-size:11px">
+                <b>16 DST Aero.&TotalEET*</b>
+              </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('FPLDSTAerodrome')"
+                [(ngModel)]="FPLDSTAerodrome" maxlength="4" id="FPLDSTAerodrome" (focus)="helpDisplay('FPLDSTAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="AltnAerodrome" id="FPL1stAltAerodrome1"style="margin-left:-35px" class="lbl-style">
+                <b>1st Alt Aerodrome</b>
+              </label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-35px" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('FPL1stAltAerodrome')"
+                id="FPL1stAltAerodrome" [(ngModel)]="FPL1stAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL1stAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+            <div class="col-6 col-sm-5 qqq">
+              <label for="2ndAltnAerodrome" style="margin-left:-55px"id="FPL2ndAltAerodrome1" class="lbl-style">
+                <b>2nd Alt Aerodrome</b>
+              </label>
+              <br/>
+              <input type="text" (paste)="false" style="margin-left:-55px"class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('FPL2ndAltAerodrome')"
+                id="FPL2ndAltAerodrome" [(ngModel)]="FPL2ndAltAerodrome" maxlength="4" (focus)="helpDisplay('FPL2ndAltAerodrome')"
+                (focusout)="emptyHelpDisplay()" />
+            </div>
+          </div>
+          <div class="row" style="width:812px">
+            <div class="col-6 col-sm-1">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq" style="padding-bottom: 1px;">
+              <label for="OtherInfo" class="lbl-style">18 OtherInfo</label>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage" class="text-borderActive txt-uppercase txt" style="width:400px;margin-left: 80px;margin-top:5px"
+                (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+          </div>
+          <div class="row" style="width:812px">
+            <div class="col-6 col-sm-1">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq" style="padding-bottom: 1px;">
+              <label for="OtherInfo" class="lbl-style">19 SuppInfo.</label>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage" class="text-borderActive txt-uppercase txt" style="width:400px;margin-left: 80px;margin-top:5px"
+                (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+          </div>
+          <div class="row" style="width:812px">
+            <div class="col-6 col-sm-1">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq" style="padding-bottom: 1px;">
+              <label for="OtherInfo" class="lbl-style">20 Altsearch&rescueInfo.</label>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage" class="text-borderActive txt-uppercase txt" style="width:400px;margin-left: 14px;margin-top:5px"
+                (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+
+            
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+            
+          </div>
+        </div>
+
+
+        <div class="tab-pane " style="border:1px solid gray" id='RCF'>
+          <div class="row"style="width:802px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>(</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq2">
+              <label for="MsgType" class="lbl-style">3 MsgType </label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" value="RCF" data-toggle="tooltip" mydata="3 Message Type"
+                readonly="readonly" [disabled]=true>
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="AircraftID" class="lbl-style">7 AircraftID*</label>
+              <br/>
+              <input type="text" (paste)="false" id="RCFAircraftID" [(ngModel)]="RCFAircraftID" (blur)="checkLength('RCFAircraftID')" (keypress)="alphaNum($event)"
+                maxlength="7" class="text-borderActive txt-uppercase txt" (focus)="helpDisplay('FPLAircraftID')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1 sss">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>/</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-2 qqq">
+              <label for="SSRMode" class="lbl-style" style="font-size:11px">SSRMode &Code</label>
+              <br/>
+              <input type="text" (paste)="false" [(ngModel)]="RCFSSRMode" class="text-borderActive txt-uppercase txt" data-toggle="tooltip"
+                id="RCFSSRMode" maxlength="1" style="width: 30px" (blur)="checkLength('RCFSSRMode')" (keypress)="alphaOnly($event)"
+                (focus)="helpDisplay('FPLSSRMode')" (focusout)="emptyHelpDisplay()">
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+              <input type="text" (paste)="false" [(ngModel)]="RCFSSRCode" class="text-borderActive txt-uppercase txt" (keypress)="numOnly($event)"
+                style="width: 30px" data-toggle="tooltip" maxlength="2" (blur)="checkLength('RCFSSRCode')" id="RCFSSRCode"
+                (focus)="helpDisplay('FPLSSRCode')" (focusout)="emptyHelpDisplay()">
+            </div>
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large;margin-left:-7px">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-3 qqq">
+              <label for="DepAerodrome" class="lbl-style">13 ARR Aero.&Time*</label>
+              <br/>
+              <input type="text" (paste)="false" class="text-borderActive txt-uppercase txt" (keypress)="alphaOnly($event)" (blur)="checkLength('RCFDepAerodrome')"
+                [(ngModel)]="RCFDepAerodrome" maxlength="4" id="RCFDepAerodrome" (focus)="helpDisplay('FPLDepAerodrome')" (focusout)="emptyHelpDisplay()"
+              />
+            </div>
+          </div>
+          <div class="row" style="width:756px">
+            <div class="col-6 col-sm-1">
+              <br/>
+              <label style="font-size:large">
+                <b>-</b>
+              </label>
+            </div>
+            <div class="col-6 col-sm-11 qqq">
+              <label for="OtherInfo" class="lbl-style">21 Radio FailureInfo</label>
+              <br/>
+              <textarea rows="1" [(ngModel)]="otherInfoMessage" class="text-borderActive txt-uppercase txt" style="width:653px;margin-left:-2px" (focus)="helpDisplay('Radio FailureInfo')"
+                (focusout)="emptyHelpDisplay()"> </textarea>
+            </div>
+         
+              <br/>
+              <label style="font-size:large;margin-left:10px;margin-top:10px">
+                <b>)</b>
+              </label>
+   
+          </div>
+        </div>
+        <div class="row" style="margin-left:50px;">
+
+          <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" id="btnSubmit" (click)="getMsgData();submit();">Submit </button>&nbsp;
+          <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" id="display" data-toggle="modal"
+          (click)="displayMessage()">Display</button>&nbsp;
+          <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" id="clear" (click)="clear()">Clear</button>&nbsp;
+          <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" (click)="print()">Print</button>
+          <!-- <i class="material-icons ">print</i>&nbsp;Print</button> -->
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-lg-4 col-md-12" style="margin-top:0px;height: 400px">
+    <div class="nav-tabs" style="background-color:#9e9e9e;padding-left: 0px;padding-right: 0px;width:360px">
+      <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+          <ul class="nav nav-tabs" data-tabs="tabs" style="background-color:#9e9e9e;height:25px;">
+            <li>
+              <a data-toggle="tab" href="#HELP" style="padding-left: 10px;color:white;padding-right: 10px;padding-top: 5px;padding-bottom: 5px;">
+               <strong>HELP</strong> 
+                <div class="ripple-container"></div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="tab-content">
+        <!-- <input type="text" style="width:112px;color:red" [(ngModel)]="helpInfoMessage" id="helpInfoMessage" class="text-borderActive txt-uppercase txt ">  -->
+        <!-- <textarea rows="1" cols="21" [(ngModel)]="helpInfoMessage1" id="helpInfoMessage1" class="text-borderActive txt-uppercase txt "> </textarea> -->
+
+        <div class="row">
+          <div class="row" style="height:20px">
+
+            <strong style="margin-left:30px;text-transform: uppercase;color:rgb(241, 4, 182)">{{helpMessageHeader}}</strong>
+
+          </div>
+          <textarea rows="17" cols="48" [(ngModel)]="helpInfoMessage" id="helpInfoMessage" class="text-borderActive txt-uppercase txt "></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseHandled()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <textarea class="" rows="20" cols="100" id="displaypopup" [(ngModel)]="displayData" style="text-transform:
+              uppercase;border:none;"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandled()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

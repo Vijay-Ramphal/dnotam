@@ -1,0 +1,40 @@
+<style>
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 4rem;
+  }
+  .nav-pills > li> a.active{
+    background-color:rgb(37, 41, 24);
+    color:rgb(92, 94, 90);
+    padding-top:0px;
+    padding-bottom: 0px;
+    margin-top:7px;
+    margin-bottom: 0px;
+    border-radius: 0%;
+
+  }
+  .nav-pills > li > a:hover{
+    color:darkslategrey;
+   }
+</style>
+
+<div class="container-fluid topnav " style="height: 30px;margin-top:35px;background-color:olive;width:1195px;margin-left:-20px">
+  <div class="row" style="margin-top:35px;margin-left:-35px;width:1180px;">
+    <nav class="navbar navbar-expand-md" style=" padding-left: 25px;padding-bottom: 3px; margin-top: -15px;">
+      <div class="navbar-collapse offcanvas-collapse topnav" id="navbarsExampleDefault">
+        <ul class="nav nav-pills ">
+          <li *ngFor="let menuItem of menuItems" class="nav-item ">
+            <a class="nav-link  rounded-0"  data-toggle="pill" role="pill" aria-selected="true" [routerLink]="[menuItem.path]">
+              <i class="material-icons">
+                <span style="color:white;">{{menuItem.icon}}</span>
+              </i>
+              <span style="color:white;"> {{menuItem.title}} </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

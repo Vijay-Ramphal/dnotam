@@ -1,0 +1,17 @@
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    <div class="sidebar-sticky border border-right-dark" style="background-color:white">
+        <div class="logo" style="background-color:olive;color:black;height: 30px;padding-top: 0px;padding-right: 0px;padding-bottom: 3px;padding-left: 35px;">
+            <h5 style="margin-top:8px">
+                <strong>{{role}}</strong>
+            </h5>
+        </div>
+        <ul class="nav flex-column nav-pills " style="margin-top:10px;">
+            <li *ngFor="let menuItem of menuItems" class="nav-item card-body">
+                <a class="nav-link" data-toggle="tab" role="tab" aria-selected="false" [routerLink]="[menuItem.path]">
+                     <i class="material-icons">{{menuItem.icon}}</i>
+                    <strong>{{menuItem.title}}</strong>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

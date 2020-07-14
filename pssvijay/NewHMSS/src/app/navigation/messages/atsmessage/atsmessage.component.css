@@ -1,0 +1,139 @@
+
+/* .z{
+    border:1px solid gray;
+    width:800px;
+ 
+    margin-top: 2px;
+    /* background-color:#EEEEEE; */
+ul>li>a{
+    color:azure;
+    font-weight: bold;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+ul>li>a:hover{
+    background-color: lightgray;
+    color: black
+}
+ul>li>a.active{
+    background-color:rgb(59, 56, 56);
+    color:azure;
+
+    
+    
+}
+.qqq{
+    margin-left: -36px;
+    background-color: gainsboro;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+   
+    
+}
+.qqq2{
+    margin-left: -42px;
+    background-color: gainsboro;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+   
+    
+}
+.sss{
+
+    margin-left: 0px;
+    background-color: gainsboro;
+    margin-top: 2px;
+   
+
+}
+.ppp{
+
+    margin-left: -36px;
+    background-color: gainsboro;
+    margin-top: 2px;
+    
+
+}
+.eee{
+    
+        margin-left: -65px;
+        background-color: gainsboro;
+        margin-top: 2px;
+        
+        
+    }
+    .www{
+        
+            margin-left: -10px;
+            background-color: gainsboro;
+            margin-top: 2px;
+ 
+        }
+
+
+
+        input {
+            /* border: 1px solid black; */
+            text-transform: uppercase;
+            width: 95px;
+            padding-left: 1px;
+            padding-right: 1px;
+            color: black;
+            font-weight: bold;
+            font-size: 12px;
+          
+            
+          }
+          .navbar-expand-md .navbar-nav .nav-link {
+            padding-right: 2rem;
+          }
+          textarea {
+            text-transform: uppercase;
+            margin-left: 15px;
+            font-size: 12px;
+            
+          }
+          .fplTable {
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+          .col-sm-1 {
+            width: 0.2%;
+            padding-right: 0px;
+            padding-right: 1px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+          }
+          .col-md-1 {
+            width: 65px;
+            padding-left: 1px;
+            padding-right: 1px;
+          }
+          .a {
+            padding-right: 1px;
+            padding-right: 1px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+          }
+          label {
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          select {
+            color: black;
+            font-weight: bold;
+            font-size: 12px;
+          }
+          textarea {
+            text-transform: lowercase;
+            color: black;
+            font-weight: bold;
+            font-size: 12px;
+          }

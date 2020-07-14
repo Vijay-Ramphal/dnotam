@@ -1,0 +1,96 @@
+/* .fa-stack[data-count]:after{
+    position:absolute;
+    right:4%;
+    top:1%;
+    content: attr(data-count);
+    font-size:65%;
+    padding:.6em;
+    border-radius:999px;
+    line-height:.75em;
+    color: white;
+    background:rgba(255,0,0,.85);
+    text-align:center;
+    min-width:2em;
+    font-weight:bold;
+  } */
+  .row1{
+    border:1px solid gray;
+    padding-top:-10px;
+    padding-right :30px;
+    margin-left:545px;
+    width:340px;
+    margin-top:150px;
+    background-color:#f2f1f51f ;
+    height:395px;
+    display:block
+  }
+  .avator{
+    width:100px;
+    height: 100px; 
+    border-radius:50%; 
+    margin-top: -50px;
+    margin-left:120px;
+    font-family:sans-serif
+  }
+  p{
+    font-weight: bold;
+    color:darkslategrey
+  }
+  input{
+    width: 100%;
+    margin-bottom: 20px;
+    transition: 1s;
+    transition-timing-function:ease ;
+  }
+   input[type="password"]{
+    border:none; 
+    border-bottom: 2px solid olive;
+    background:transparent;
+    outline: none;
+    height: 30px;
+    color:olive;
+    font-size: 16px;
+    border-radius: unset
+
+
+  }
+  input[type="text"] {
+    border:none; 
+    border-bottom: 2px solid olive;
+    background:transparent;
+    outline: none;
+    height: 30px;
+    color:olive;
+    font-size: 16px;
+    border-radius: unset
+
+  }
+  
+  button{
+    border: none;
+    outline: none;
+    height: 40px;
+    background-color: olive;
+    color:#fff;
+    font: size 20px;
+    border-radius: 20px;
+    width:100%;
+    cursor: pointer;
+    box-shadow: 0 4px black;
+  }
+  button:active{
+    background-color:olive;
+    box-shadow: 0 2px black;
+    transform: translateY(4px);
+    
+
+
+  }
+  .bg_img{
+    background-image:url(assets\img\atcbg.png);
+    background-repeat: no-repeat;
+    background-size: unset;
+     /* filter: blur(8px); 
+    */
+    
+}

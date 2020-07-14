@@ -1,0 +1,235 @@
+#FPLCruisingLevel,#Cruising,#FPL1stAltAerodrome,#FPL1stAltAerodrome1
+{
+    margin: -40px;
+    
+}
+#FPLCruisingLevel
+{
+    margin-top: 6px;
+}
+#FPL2ndAltAerodrome,#FPL2ndAltAerodrome1,#Route1,#Route2
+{
+    margin: -85px;
+}
+
+
+#FPL2ndAltAerodrome,#FPL1stAltAerodrome,#FPL2ndAltAerodrome
+{
+    
+    margin-top: 5px;
+}
+#Aerodrome1,#CHG1stAltAerodrome
+{
+    margin: -45px;
+} 
+
+#CHG1stAltAerodrome
+{
+    
+    margin-top: 3px;
+}
+#Aerodrome2,#CHG2ndAltAerodrome
+{ 
+        margin: -105px;     
+}
+#CHG2ndAltAerodrome{
+  
+        margin-top: 3px; 
+}
+#addthis,#Remove{
+        margin-top: 20px;
+        margin-left: 45px;
+}
+#CHGFieldsAmendment
+{
+
+    margin-left: 55px;
+}
+#FildAmendment{
+    margin-left: 55px;   
+} 
+
+ #cnl1,#CNL1stAltAerodrome
+{
+    
+    margin-left: -45px;
+    
+}
+#cnl2,#CNL2ndAltAerodrome
+{
+    margin-left: -85px;
+    
+}
+#dla1,#DLA1stAltAerodrome
+{
+ 
+    margin-left: -45px;
+    
+}
+#dla2,#DLA2ndAltAerodrome
+{
+    margin-left: -85px;
+    
+} 
+#dep1,#DEP1stAltAerodrome
+{
+    margin-left: -45px;
+    
+}
+#dep2,#DEP2ndAltAerodrome
+{
+    margin-left: -85px;
+    
+}
+#arr1,#ARRTime,#cru1,#CPLCruisingLevel,#cpl1,#CPL1stAltAerodrome,#arr1,#EST1stAltAerodrome,#cdn1,
+#CDN1stAltAerodrome,#acp1,#ACP1stAltAerodrome,#rqp1,#RQP1stAltAerodrome,#rqs1,#RQS1stAltAerodrome,#spl1,#SPL1stAltAerodrome
+{
+    margin-left: -45px;
+    
+}
+#arr2,#AltnAerodrome,#route1,#route2,#cpl2,#CPL2ndAltAerodrome,#arr2,
+#EST2ndAltAerodrome,#cdn2,#CDN2ndAltAerodrome,#acp2,#ACP2ndAltAerodrome,#rqp2,#RQP2ndAltAerodrome,#rqs2,#RQS2ndAltAerodrome,#spl2,#SPL2ndAltAerodrome
+{
+    margin-left: -85px;
+    
+}
+
+.c
+{
+    
+    margin-top: 5px;
+  padding-bottom :5px;
+  margin-bottom: 3px;
+ /* border: 1px solid gray;  */
+background-color: gainsboro;
+
+
+}  
+#fpl8{
+    margin-left: 0px;
+}
+.p{
+    padding-bottom:1px 
+}
+.p1{
+    padding-bottom:0px ;
+    margin-bottom:0px;
+    padding-top: 0px;
+}
+
+
+   .b{
+    margin-top: 5px;
+    padding-bottom : 5px;
+  border: 1px solid gray;
+  background-color: gainsboro;
+}   
+.z{
+    border:1px solid gray;
+    margin-top: 2px;
+    /* background-color:#EEEEEE; */
+}
+.dd{
+    margin-left:22px;
+margin-right: -85px;
+
+}
+.vv{
+    
+    margin-left: 65px;
+     
+}
+input {
+    /* border: 1px solid black; */
+    text-transform: uppercase;
+    width: 95px;
+    padding-left: 3px;
+    padding-right: 2px;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+
+}
+
+textarea {
+    text-transform: uppercase;
+    margin-left: 15px;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.fplTable {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.col-sm-1 {
+    width: 0.5%;
+    padding-right: 0px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.col-md-1 {
+    width: 65px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.a {
+    padding-right: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+label {
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+select {
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+textarea {
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+}
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+/* [class*="col-"] {
+    float: left;
+    padding: 15px;
+} */

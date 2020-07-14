@@ -1,0 +1,49 @@
+.navbar-expand-md .navbar-nav .nav-link {
+    padding-right: 4rem;
+  }
+  .nav-pills > li> a:hover{
+    background-color:whitesmoke;
+   color:black;
+
+   }
+  .nav-pills > li> a.active{
+    background-color:white;
+    color:olive;
+    padding-top:0px;
+    padding-bottom: 0px;
+    margin-top:7px;
+    margin-bottom: 0px;
+    border-radius: 0%;
+
+  }
+  
+   .nav-pills > li> a{
+    color:white;
+    font-weight: lighter;
+    padding-bottom: 0px;
+    border-radius: 0%
+  }
+
+  @media (min-width: 576px) {
+    .container {
+        max-width:540px
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width:720px
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width:960px
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width:1140px
+    }
+}

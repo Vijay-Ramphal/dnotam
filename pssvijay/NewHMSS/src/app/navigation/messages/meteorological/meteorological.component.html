@@ -1,0 +1,403 @@
+   
+<div style="background-color:gainsboro;width:1174px;border:1px solid gray;margin-left:-15px;margin-top:0px" >
+  <div class="row">
+      <div class="col-7 ex1 table-responsive-sm " style="height: 50px;">
+          <table class="table">
+              <tbody>
+                  <tr>
+                      <td>
+                          <label for="StartOfMsg" class="lbl-style">&nbsp;&nbsp;Start of Msg:</label>
+                      </td>
+                      <td>
+                          <input type="text" id="StartMsgType" [(ngModel)]="startMsgType" readonly="readonly">
+                      </td>
+                      <td>
+                          <label for="ChannelPrefix" class="lbl-style">&nbsp;&nbsp;Chnl Prefix:&nbsp;&nbsp;</label>
+                      </td>
+                      <td>
+                          <input type="text" id="ChannelPrefix" maxlength="3" [(ngModel)]="channelPrefix" readonly="readonly">
+                      </td>
+                      <td>
+                          <label for="SequenceNo" class="lbl-style">&nbsp;&nbsp;Csn No:&nbsp;&nbsp;</label>
+                      </td>
+                      <td>
+                          <input type="text" id="SequenceNo" [(ngModel)]="sqnNo" maxlength="5" readonly="readonly">
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-1 col-md-10">
+          <div class="row  tbl-bgcolor" style="margin-left:20px">
+              <label for="priority">Priority:</label>
+              <select name="singleSelect" class=" ng-pristine ng-untouched ng-valid ng-not-empty" id="ddlPriority" [(ngModel)]="priority">
+                  <option value="SS">SS</option>
+                  <option value="DD">DD</option>
+                  <option value="FF">FF</option>
+                  <option value="GG">GG</option>
+                  <option value="KK">KK</option>
+              </select>
+          </div>
+      </div>
+
+      <div class="row tbl-bgcolor table-responsive" style="margin-left:30px;">
+          <label for="DI"> AI:</label>
+          <tbody>
+              <tr>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI1" [(ngModel)]="DI1" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI1')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI2" [(ngModel)]="DI2" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI2')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI3" [(ngModel)]="DI3" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI3')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI4" [(ngModel)]="DI4" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI4')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI5" [(ngModel)]="DI5" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI5')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI6" [(ngModel)]="DI6" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI6')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI7" [(ngModel)]="DI7" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI7')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:20px;">
+                      <button type="button" class="btn btn-default btn-round btn-just-icon" data-toggle="modal" (click)="displayGroups()" style="height:20px;padding-top: 2px;padding-bottom: 2px;padding-right: 2px;padding-left: 2px;margin-bottom: 0px;margin-top: 0px;">
+                          <i class="material-icons">search</i>
+                          <div class="ripple-container"></div>
+                      </button>
+                  </td>
+              </tr>
+              <tr></tr>
+              <tr></tr>
+              <tr style="padding-bottom: 5px;">
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI8" [(ngModel)]="DI8" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI8')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI9" [(ngModel)]="DI9" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI9')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI10" [(ngModel)]="DI10" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI10')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI11" [(ngModel)]="DI11" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI11')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI12" [(ngModel)]="DI12" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI12')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI13" [(ngModel)]="DI13" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI13')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI14" [(ngModel)]="DI14" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI14')" autocomplete="off">
+                  </td>
+              </tr>
+              <tr style="padding-bottom: 5px;">
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI15" [(ngModel)]="DI15" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI15')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI16" [(ngModel)]="DI16" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI16')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI17" [(ngModel)]="DI17" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI17')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI18" [(ngModel)]="DI18" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI18')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI19" [(ngModel)]="DI19" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI19')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI20" [(ngModel)]="DI20" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI20')" autocomplete="off">
+                  </td>
+                  <td style="padding:2px;width:100px;">
+                      <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                          id="DI21" [(ngModel)]="DI21" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI21')" autocomplete="off">
+                  </td>
+              </tr>
+          </tbody>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-5">
+          <table class="table" style="margin-bottom: 0px;">
+              <tbody>
+                  <tr>
+                      <td class="td-padding">
+                          <label for="DateTime" class="lbl-style">&nbsp;&nbsp;Filing Time:&nbsp;&nbsp;</label>
+                          <input type="text" id="DI22" [(ngModel)]="currentDateTime" maxlength="6" (keypress)="numOnly($event)">
+                      </td>
+                      <td class="td-padding">
+                          <label for="OriginIndicator" class="lbl-style">&nbsp;&nbsp;Origin Indicator:&nbsp;&nbsp;</label>
+                          <input type="text" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-maxlength" (keypress)="alphaNum($event)"
+                              id="OI23" [(ngModel)]="originIndicator" maxlength="8">
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':groupdisplay}">
+  <div style="margin-left: 250px;  margin-right: 250px;  width: 900px;  margin-top: 120px;">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="myModalGILabel">Group Indicators</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseHandled()">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-lg-2">
+                      <label for="DI" class="lbl-style">
+                          <b>Group List</b>
+                      </label>
+                      <select name="item"(change)="getAddressIndicators()" multiple style="height:100px;width:135px;" [(ngModel)]="selectedElement" (ngModelChange)="onChange($event)">
+                          <option *ngFor="let item of groupIndicators" [value]="item">{{item}}</option>
+                      </select>
+                  </div>
+                  <div class="col-lg-10">
+                      <label for="DI" class="lbl-style">
+                          <b>Address Indicators</b>
+                      </label>
+                      <table>
+                          <tbody>
+                              <tr>
+                                  <td *ngFor="let x of selectAI | slice:0:7" style="padding:2px;width:100px;">
+                                      <input type="text" id="x.key" [(ngModel)]="x.value" readonly="readonly">
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td *ngFor="let x of selectAI | slice:7:14" style="padding:2px;width:100px;">
+                                      <input type="text" id="x.key" [(ngModel)]="x.value" readonly="readonly">
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td *ngFor="let x of selectAI | slice:14" style="padding:2px;width:100px;">
+                                      <input type="text" id="x.key" [(ngModel)]="x.value" readonly="readonly">
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-dismiss="modal" (click)="onCloseHandled()">Cancel</button>
+              <button type="button" class="btn btn-info" data-dismiss="modal" (click)="submitGroupIndicator()">Save</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row" >
+  <div class="col-lg-8 col-md-8" style="border: 1px solid black;padding-left: 0px;padding-right: 0px;">
+      <div class="nav-tabs" style="background-color:#9e9e9e;padding-left: 5px;padding-right: 0px;">
+          <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                  <ul class="nav nav-tabs  navbar-nav" data-tabs="tabs" style="font-size:13px;height:25px;width:810px">
+                      <li (click)="listClick(item.name)" *ngFor="let item of tabGroup; let i = index" [attr.data-index]="i">
+                          <a data-toggle="tab" href="#{{item.name}}" [ngClass]="{ 'active': item.name == 'FREETXT'}" style="padding-left: 10px;padding-right: 10px;padding-top: 0px;padding-bottom: 7px;font-size: 13px">
+                               {{ item.name }} 
+                          
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="content" >
+          <div class="tab-content" >
+              <div class="tab-pane active" id="FREETXT">
+                <div class="row">
+                    <div class="col-lg-4 ">
+                           <div class="card" style="margin-left:10px;margin-top:1px;height:364px;width:186px">
+                                   <div class="card-header" data-background-color="default">Draft Messages</div>
+                                    <div class="card-content">
+                                       <table class="table" style="margin-left:10px">
+                                           <tbody>
+                                               <tr style="height:180px;">
+                                                   <select name="item" multiple style="height:205px;width:142px;" [(ngModel)]="selectedElement" (ngModelChange)="onChange($event)">
+                                                       <option *ngFor="let item of fileList" [value]="item.name">{{item.name}}</option>
+                                                   </select>
+                                               </tr>
+                                               <tr>
+                                                   <div class="form-group">
+                                                       <label> Save As:</label>
+                                                       <input type="text" id="FI26" [(ngModel)]="draftName">
+                                                   </div>
+                                               </tr>
+                                               <tr>
+                                                   <button type="button" class="btn btn-default  btn-sm btn btn-AliceBlue" data-toggle="tooltip" data-placement="top" title="Save The File"
+                                                       data-dismiss="modal" (click)="onTextFileSave()">
+                                                       <i class="material-icons">save</i>
+                                                   </button>&nbsp;
+                                                   <button type="button" class="btn btn-default  btn-sm btn btn-SlateGray " data-toggle="tooltip" data-placement="top" title="Delete The File"
+                                                       (click)="onTextFileDelete(selectedElement)">
+                                                       <i class="material-icons">delete</i>
+                                                   </button>
+                                               </tr>
+                                           </tbody>
+                                       </table>
+                                   </div>
+                               </div>
+                        </div>
+                        <div class="col-lg-8"style="margin-left:-76px">
+                     <textarea rows=20 cols="80" style="margin-left:0px;margin-top:0px" [(ngModel)]="draftMsg" ></textarea>
+                     </div>
+                   </div>
+              </div>
+              <div class="content tab-pane"   id="METAR" style="margin-left:65px">
+                  <table class="fplTable">
+                      <tbody>
+                          <tr>
+                              <td>
+                                  
+                                  <label>METAR</label>
+                                  <img src="./assets\img\Work_In_Progress.png" alt="Work_In_Progress" href="#" style="width: 150px;margin-left: 200px;margin-right: 100px;display:block">
+
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="tab-pane" id="TAF" style="margin-left:65px">
+                  <table class="fplTable">
+                      <tbody>
+                          <tr>
+                              <td>
+                                 
+                                  <label>TAF</label>
+                                  
+                                  <img src="./assets\img\Work_In_Progress.png" alt="Work_In_Progress" href="#" style="width: 150px;margin-left: 200px;margin-right: 100px;display:block">
+
+                                </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="tab-pane" id="SIGMET" style="margin-left:65px;">
+                  <table class="fplTable">
+                      <tbody>
+                          <tr>
+                              <td>
+                                  
+                                  <label>SIGMET</label>
+                                 
+                                  <img src="./assets\img\Work_In_Progress.png" alt="Work_In_Progress" href="#" style="width: 150px;margin-left: 200px;margin-right: 100px;display:block">
+
+                                </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="tab-pane" id="SPECI" style="margin-left:65px">
+                <table class="fplTable">
+                    <tbody>
+                        <tr>
+                            <td>
+                                
+                                <label>SPECI</label>
+                                
+                                <img src="./assets\img\Work_In_Progress.png" alt="Work_In_Progress" href="#" style="width: 150px;margin-left: 200px;margin-right: 100px;display:block">
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+          </div>
+      </div>
+  </div>
+
+  <div class="col-lg-4 col-md-12" style="margin-top:0px;height: 400px;margin-left:-10px">
+      <div class="nav-tabs" style="background-color:#9e9e9e;padding-left: 0px;padding-right: 0px;margin-right: -5px">
+          <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                  <ul class="nav nav-tabs" data-tabs="tabs" style="background-color:#9e9e9e;border-bottom-width: 0px;height: 30px;border-left-width: 10px;padding-left: 10px;margin-left: 0px;height:40px">
+                      <li>
+                          <a data-toggle="tab" href="#HELP" style="padding-left: 10px;padding-right: 10px;padding-top: 5px;padding-bottom: 5px;color:white">
+                              HELP
+                              <div class="ripple-container"></div>
+                          </a>
+                      </li>
+                  </ul>
+
+              </div>
+          </div>
+      </div>
+      <div class="content">
+
+          <div class="tab-content">
+              <!-- <input type="text" style="width:112px;color:red" [(ngModel)]="helpInfoMessage" id="helpInfoMessage" class="text-borderActive txt-uppercase txt ">  -->
+              <!-- <textarea rows="1" cols="21" [(ngModel)]="helpInfoMessage1" id="helpInfoMessage1" class="text-borderActive txt-uppercase txt "> </textarea> -->
+              <div class="row">
+                  <div class="row" style="height:20px">
+                      <strong style="margin-left:30px;text-transform: uppercase;color:rgb(241, 4, 182)">helpMessageHeader</strong>
+                  </div>
+                  <textarea style="margin-top:-10px " rows="19" cols="50"  id="helpInfoMessage" class="text-borderActive txt-uppercase txt "></textarea>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="row justify-content-center" style="margin-left:50px;margin-top:5px">
+
+    <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" id="btnSubmit" (click)="submit()">Submit </button>&nbsp;
+    <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" data-toggle="modal" data-target=".bd-example-modal-lg"
+        (click)="displayMessage()">Display</button>&nbsp;
+    <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" id="clear" (click)="clear()">Clear</button>&nbsp;
+    <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" >Print</button>
+    <!-- <i class="material-icons ">print</i>&nbsp;Print</button> -->
+</div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseHandled()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <textarea class="" rows="20" cols="100" id="displaypopup" [(ngModel)]="displayData" style="text-transform:
+                  uppercase;border:none;"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandled()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

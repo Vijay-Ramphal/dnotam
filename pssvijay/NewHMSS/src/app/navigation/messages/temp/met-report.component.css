@@ -1,0 +1,293 @@
+
+
+
+/*****************************   ASHTM    *****************************************/
+.mainbox
+{
+    margin-left: 17px;
+    margin-top: 2px;
+   
+}
+
+.mainbox2
+{
+    margin-left: 17px;
+    border: 1px solid black;
+    background-color: gainsboro;
+}
+.txtarea
+{
+    margin-left: -31px;
+    padding-right: 0px;
+}
+#serialNo
+{
+    position: absolute;
+    background-color: rgb(245, 250, 248);
+    height: 100px;
+    width: 36px;
+    overflow-y: auto;
+    z-index: 1;
+    cursor: pointer;
+    margin-left: 30px;
+    padding-left:2px;
+}
+#locInd
+{
+    position: absolute;
+    background-color: rgb(245, 250, 248);
+    height: 100px;
+    width: 90px;
+    overflow-y: auto;
+    z-index: 1;
+    cursor: pointer;
+}
+#fir
+{
+    position: absolute;
+    background-color: rgb(245, 250, 248);
+    height: 100px;
+    width: 130px;
+    overflow-y: auto;
+    z-index: 1;
+    cursor: pointer;
+    margin-left:16px;
+    padding-left:4px;
+}
+#colorCode
+{
+    position: absolute;
+    background-color: rgb(245, 250, 248);
+    height: 100px;
+    width: 90px;
+    overflow-y: auto;
+    z-index: 1;
+    cursor: pointer;
+}
+#help, #submit, #clear, #display, #print
+{
+    outline: none;
+}
+#serialNo1
+{
+    width: 30px;
+    margin-right: -0.2rem;
+    outline: none;
+}
+#serialNo2
+{
+    width: 40px;
+    margin-left: -0.2rem;
+    margin-right: -0.2rem;
+    outline: none;
+}
+#serialNo3
+{
+    width: 45px;
+    margin-left: -0.2rem;
+    outline: none;
+}
+#fir1, #eruption, #volcano, #latLong, #ashXtnt, #ashCloud, #airRoutes, #altRoutes, #colorCode1
+{
+    width: 130px;
+    outline: none;
+}
+.ABC1, .DEF1, .GHI1, .J, .K
+{
+    margin-right: 42px;
+}
+.ABC2, .DEF2, .GHI2
+{
+    margin-left: -30px;
+   
+}
+.ABC3, .DEF3
+{
+    margin-left: 60px;
+  
+}
+.GHI2
+{
+    margin-left: 6.5rem;
+}
+.ABC2
+{
+    margin-right: 2rem;
+}
+.mrows
+{
+    margin-top: -5PX;
+    margin-left:0px
+}
+.locInd2, .dtIssue1, .optGrp1
+{
+    margin-left: -4rem;
+}
+
+
+
+
+
+/*********************************   SNOWTAM   *******************************************/
+
+
+
+.snhdrr1
+{
+    width: 30px;
+}
+
+.snhdrr2
+{
+    width: 35px;
+    margin-left: -3px;
+    border-left: none;
+    border-right: none;
+}
+
+.snhdrr3
+{
+    width: 50px;
+    margin-left: -3px;
+}
+
+.friction
+{
+    width: 120px;
+}
+
+.aero
+{
+    margin-left: -35px;
+}
+
+.dtntm
+{
+    margin-left: -35px;
+}
+
+.nxtobsrv
+{
+    margin-left: -100px;
+}
+
+.serialno
+{
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    height: 200px;
+    width: 38px;
+    margin-left: 35px;
+    overflow-y: auto;
+    background-color:rgb(245, 250, 248);
+}
+
+.locInd
+{
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    height: 200px;
+    width: 90px;
+    margin-left: 35px;
+    overflow-y: auto;
+    background-color:rgb(245, 250, 248);
+}
+
+.aerodrome
+{
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    height: 200px;
+    width: 90px;
+    margin-left: 35px;
+    overflow-y: auto;
+    background-color:rgb(245, 250, 248);
+}
+
+#r1:focus, #r2:focus, #r3:focus
+{
+    outline-width: 0px;
+}
+#r1, #r2, #r3
+{
+    border: 1px solid rgb(209, 198, 198);
+}
+#r1
+{
+    border-bottom: none;
+}
+.locInd
+{
+    margin-left: -1px;
+}
+.serialno
+{
+    margin-left: 28px;
+}
+#help
+{
+    outline: none;
+}
+
+
+
+
+
+/***********************************   NOTAM   ***********************************************/
+
+
+
+
+.kkk
+{
+    border: 2px solid gray;
+    margin-left: 20px;
+}
+
+.fir,.ntmcode,.traffic,.purpose,.scope,.llimit,.ulimit,.codrad
+{
+    margin-right:20px;
+}
+
+#Antm
+{
+    width: 150px;
+}
+#Cntm
+{
+    width: 120px;
+}
+
+.abcdntm
+{
+    margin-top: 20px;
+    margin-left:-73px;
+
+}
+
+.locIndntm
+{
+    margin-left: -3px;
+}
+
+#Dntm,#Entm,#Fntm,#Gntm
+{
+    margin-left: -25px;
+}
+
+#nm,#nr,#nc
+{
+    margin-left: -35px;
+}
+
+.notamn
+{
+    width: 150px;
+}
+.notamr,.notamc
+{
+    width: 240px;
+}

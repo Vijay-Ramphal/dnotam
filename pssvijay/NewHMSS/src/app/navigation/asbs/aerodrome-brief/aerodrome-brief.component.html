@@ -1,0 +1,223 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12">
+    <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default" >
+        <div class="panel-heading"role="tab" id="headingOne">
+          <h4 class="panel-title" >
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              <span style="font-size:16px;color:white"> Arodrome Brief</span>
+            </a>
+          </h4>
+        </div>
+        <div class=" " role="" aria-labelledby="">
+          <div class="panel-body" >
+            <div>
+              <div class="row">
+              </div>
+              <div class="row" style="margin-left:10px;margin-top:10px">
+                <div class="col-xs-12" style="margin-top:-5px;padding-left:08px">
+                  <div class="col-xs-1 ">
+                    <label>
+                      <b>Briefing ID:</b>
+                    </label>
+                    <input type="text" id="form-field-1-1" value="" disabled style="margin-left:102px;text-align:center" [(ngModel)]="briefingID"
+                      [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 chPrefi" style="margin-top:-5px">
+                <div class="col-xs-1 " style="padding-left:20px">
+                  <label>
+                    <b>UTC Validity </b>
+                  </label>
+                  <input type="text" id="form-field-1-1" style="margin-left:95px;width:60px;text-align:center" placeholder="Fromtime" disabled
+                    name="two">
+                  <input type="datetime-local" id="form-field-1-2" style="margin-left:-5px;width:200px;text-align:center" 
+                  [ngModelOptions]="{standalone: true}" [(ngModel)]="fromDate">
+                  <input type="text" id="form-field-2-1" style="margin-left:25px;width:60px;text-align:center" placeholder="Totime" disabled
+                    name="two">
+                  <input type="datetime-local" id="form-field-2-2" style="margin-left:-5px;width:200px;text-align:center" [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="toDate">
+                </div>
+              </div>
+
+              <div class="col-xs-12 chPrefi" style="margin-top:-5px;padding-left:5px">
+                <div class="col-xs-1 chPrefi" style="padding-left:15px">
+                  <label>
+                    <b>Briefing Content</b>
+                  </label>
+                  <input type="checkbox" style="margin-left:2px;height:15px" name="briefingContent" value="NOTAM" [(ngModel)]="notam" [ngModelOptions]="{standalone: true}">
+                  <label style="padding-left:0px;margin-left:-50px;font-size:12px;font-weight:bold" >NOTAM </label> &nbsp;
+                  <input type="checkbox" style="margin-left:-50px;height:15px" name="briefingContent" value="SNOWTAM" [(ngModel)]="snowtam" [ngModelOptions]="{standalone: true}"  disabled>
+                  <label style="padding-left:0px;margin-left:-60px;font-size:12px;font-weight:bold"> SNOWTAM </label>&nbsp; &nbsp;
+                  <input type="checkbox" style="margin-left:-50px;height:15px" name="briefingContent"  value="ASHTAM" [(ngModel)]="ashtam" [ngModelOptions]="{standalone: true}"disabled >
+                  <label style="padding-left:0px;margin-left:-60px;font-size:12px;font-weight:bold"> ASHTAM</label>&nbsp; &nbsp;
+                  <label style="padding-left:0px;margin-left:50px;font-size:16px;font-weight:bold"> Scope</label>&nbsp; &nbsp;
+                  <input type="checkbox" style="margin-left:-50px;height:15px" name="scope" [(ngModel)]="scope" value="scope" disabled [ngModelOptions]="{standalone: true}">
+                  <label style="padding-left:0px;margin-left:-50px;font-size:12px;font-weight:bold"> M</label>&nbsp; &nbsp;
+                </div>
+              </div>
+
+              <div class="col-xs-12" style="margin-top:-5px;padding-left:5px">
+                <div class="col-xs-1 " style="padding-left:15px">
+                  <label>
+                    <b>Flight Rules</b>
+                  </label>
+                  <input type="radio" style="margin-left:35px;height:15px" name="flightrules" value="IFR"[(ngModel)]="ruleIFR" [ngModelOptions]="{standalone: true}">
+                  <label style="margin-left:-50px;font-size:12px;font-weight:bold">IFR </label> &nbsp;
+                  <input type="radio" style="margin-left:-20px;height:15px" name="flightrules" value="VFR" [(ngModel)]="ruleVFR" [ngModelOptions]="{standalone: true}">
+                  <label style="margin-left:-50px;font-size:12px;font-weight:bold"> VFR </label>&nbsp; &nbsp;
+                  <input type="radio" style="margin-left:-20px;height:15px" name="flightrules" value="IFR/VFR" [(ngModel)]="ruleIFRVFR" [ngModelOptions]="{standalone: true}">
+                  <label style="margin-left:-50px;font-size:12px;font-weight:bold"> IFR/VFR</label>&nbsp; &nbsp;
+                  <label style="padding-left:0px;margin-left:50px;font-size:16px;font-weight:bold"> Series</label>&nbsp; &nbsp;
+                  <input type="checkbox" style="margin-left:-50px;height:15px" name="series" [(ngModel)]="series" value="series" disabled [ngModelOptions]="{standalone: true}">
+                  <label style="padding-left:0px;margin-left:-50px;font-size:12px;font-weight:bold"> G</label>&nbsp; &nbsp;
+                </div>
+              </div>
+
+              <div class="col-lg-9" style="border:1px solid gray;width:830px;height:85px;margin-top:-10px;margin-left:80px">
+                <div class="row tbl-bgcolor" style="margin:1px;border:white">
+                  <label for="aerodrome" class="lbl-style" style="margin-top:-10px">
+                    <b>Aerodrome's:</b>
+                  </label>
+                  <table class="" style="margin-top:-10px">
+                    <tbody>
+                      <tr>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome1" [(ngModel)]="aerodrome1" [ngModelOptions]="{standalone: true}" maxlength="8" (keypress)="alphaOnly($event)"
+                            (blur)="checkLength('aerodrome1')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome2" [(ngModel)]="aerodrome2" [ngModelOptions]="{standalone: true}" maxlength="8" (keypress)="alphaOnly($event)"
+                            (blur)="checkLength('aerodrome2')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome3" [(ngModel)]="aerodrome3" [ngModelOptions]="{standalone: true}" maxlength="8" (keypress)="alphaOnly($event)"
+                            (blur)="checkLength('aerodrome3')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome4" [(ngModel)]="aerodrome4" [ngModelOptions]="{standalone: true}" maxlength="8" (keypress)="alphaOnly($event)"
+                            (blur)="checkLength('aerodrome4')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome5" [(ngModel)]="aerodrome5" [ngModelOptions]="{standalone: true}" maxlength="8" (keypress)="alphaOnly($event)"
+                            (blur)="checkLength('aerodrome5')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome6" [(ngModel)]="aerodrome6" [ngModelOptions]="{standalone: true}" maxlength="8" (keypress)="alphaOnly($event)"
+                            (blur)="checkLength('aerodrome6')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome7" [(ngModel)]="aerodrome7" [ngModelOptions]="{standalone: true}" maxlength="8" (keypress)="alphaOnly($event)"
+                            (blur)="checkLength('aerodrome7')">
+                        </td>
+                      </tr>
+
+                      <tr style="padding-bottom: 5px;">
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome8" [(ngModel)]="aerodrome8" [ngModelOptions]="{standalone: true}" maxlength="8" (keypress)="alphaOnly($event)"
+                            (blur)="checkLength('aerodrome8')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome9" [(ngModel)]="aerodrome9" [ngModelOptions]="{standalone: true}" maxlength="8" (keypress)="alphaOnly($event)"
+                            (blur)="checkLength('aerodrome9')"> </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome10" [(ngModel)]="aerodrome10" [ngModelOptions]="{standalone: true}" maxlength="8"
+                            (keypress)="alphaOnly($event)" (blur)="checkLength('aerodrome10')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome11" [(ngModel)]="aerodrome11" [ngModelOptions]="{standalone: true}" maxlength="8"
+                            (keypress)="alphaOnly($event)" (blur)="checkLength('aerodrome11')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome12" [(ngModel)]="aerodrome12" [ngModelOptions]="{standalone: true}" maxlength="8"
+                            (keypress)="alphaOnly($event)" (blur)="checkLength('aerodrome12')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome13" [(ngModel)]="aerodrome13" [ngModelOptions]="{standalone: true}" maxlength="8"
+                            (keypress)="alphaOnly($event)" (blur)="checkLength('aerodrome13')">
+                        </td>
+                        <td style="padding:2px;width:60px;">
+                          <input type="text" (paste)="false" style="width:100px" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="aerodrome14" [(ngModel)]="aerodrome14" [ngModelOptions]="{standalone: true}" maxlength="8"
+                            (keypress)="alphaOnly($event)" (blur)="checkLength('aerodrome14')">
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  <button type="submit" class="dd" style="background-color:#9585BF;color:white;;margin-left:850px;width:100px;margin-top:-30px"
+                    (click)="onSubmit()">Submit</button>
+                  <button type="submit" class="dd" style="background-color:#9585BF;color:white;;margin-left:950px;width:100px;margin-top:-30px"
+                    (click)="clear()">Reset</button>
+                </div>
+              </div>
+
+              <div class="col-xs-12 toggle-panel " style="border:1px solid gray;height:410px;margin-top:2px" *ngIf="show" [hidden]="hidden"
+                [style.visibility]="visible">
+                <div class="row">
+                  <div class="row" style="margin-top:0px">
+                    <div class="col-xs-12">
+                      <div class="row" style="margin-left:15px;">
+                        <div class="col-lg-12 col-md-12">
+                          <div class="card-header" style="padding-top: 0px;padding-bottom: 0px;background-color:darkgray;color:white;width:1177px">Pre Flight Information Bulletin-Area Brief</div>
+                          <div class="card-content" style="font-weight:bold;font-size:14px;background-color:aliceblue;border:5px solid white;padding-left:10px;padding-right:25px;padding-top:2px;padding-bottom:2px">
+                            <table class="table table-sm " >
+                              <tr>
+                                <td>Bulletin No:{{briefingID}}</td>
+                                <td>Generated On:{{briefingID}}</td>
+                                <td>Flight Rules: {{rules}}</td>                           
+                              </tr>
+                              <tr><td style="width:400px">Validity Period: {{fromDate}} {{toDate}}</td>
+                                <td>Briefing Content: {{briefingContent}}</td>
+                                <td>Purpose:</td>
+                              </tr>
+                              <tr >
+                                <td colspan="3">Arodrome's: {{aerodromeList}}</td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row" style="margin-left:15px;">
+                        <div class="col-lg-12 col-md-12">
+                          <div class="card-header" style="padding-top: 0px;padding-bottom: 0px;background-color:gray;color:white">NOTAM Bulletin</div>
+                          <div class="card-header" style="padding-top: 0px;padding-bottom: 0px;background-color:darkgray;color:red">En-Route Information</div>
+                          <div class="card-content" style="font-weight:bold;font-size:14px;background-color:gainsboro;border:5px solid white;padding-left:50px;padding-right:30px;padding-top:2px;padding-bottom:2px;height:250px">
+                            <table>
+                              <tr *ngFor="let record of Records">
+                                <td>
+                                  {{record.eText}}
+                                </td>
+                                <td>
+                                  {{record.series}}
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+input {
+    text-transform: uppercase;
+    border: 1px solid white;
+    width: 105px;
+    height: 20px;
+    color: black;
+    
+    /* font-weight: bold; */
+  }
+
+  label {
+    color: black;
+    font-size: 14px;
+  }
+
+  select {
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  textarea {
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+  }
+
+  #form-field-123 {
+    width: 200px;
+  }
+  input[type="text"]{
+    border-color:1px gray;
+
+
+  }

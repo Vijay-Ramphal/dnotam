@@ -1,0 +1,17 @@
+#products-table
+{
+     /* width: 200px;
+    height: 400px; */
+    overflow:scroll;
+}
+thead{
+    background-color: olive;
+   
+}
+.error_table{
+    border:1px solid gray;
+    margin-top:0px;
+    padding:1px;
+    overflow-y:scroll;
+    height:540px
+}

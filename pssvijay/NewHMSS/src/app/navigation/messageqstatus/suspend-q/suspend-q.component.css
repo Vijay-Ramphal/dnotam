@@ -1,0 +1,17 @@
+.suspend_table{
+    border:1px solid gray;
+    margin-top:0px;
+    padding:1pt;
+    height:540px;
+    overflow-y: scroll
+}
+#products-table
+{
+     /* width: 200px;
+    height: 400px; */
+    overflow:scroll;
+}
+thead{
+    background-color: olive;
+    position: relative
+}

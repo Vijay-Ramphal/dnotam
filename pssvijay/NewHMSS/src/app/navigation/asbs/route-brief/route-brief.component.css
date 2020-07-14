@@ -1,0 +1,41 @@
+input {
+   
+    border:1px solid white;
+    width: 150px;
+    height:25px;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    /* font-weight: bold; */
+  }
+
+  label {
+    color: black;
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-left: 10px;
+  }
+
+  select {
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  textarea {
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+  }
+
+  #form-field-123
+  {
+    width: 200px;
+  }
+  .table, td{
+    margin-bottom:0px;
+    padding:0px;
+  }

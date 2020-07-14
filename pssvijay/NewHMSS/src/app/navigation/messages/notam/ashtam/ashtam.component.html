@@ -1,0 +1,170 @@
+<style>
+  input {
+      border: 1px solid rgb(192, 188, 188);
+      text-transform: uppercase;
+      width: 95px;
+      padding-left: 3px;
+      padding-right: 2px;
+      color: black;
+      font-weight: bold;
+  }
+
+
+  label {
+       color: black; 
+  }
+
+  select {
+      color: black;
+      font-weight: bold;
+  }
+
+  textarea {
+      text-transform: uppercase;
+      color: solid white;
+      font-weight: bold;
+      background-color: white;
+  }
+</style>
+
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 ">
+      <div class="row ">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="margin-left: -40px;">
+              <input id="new" type="radio" name="optIt" value="new" (click)="OptGrp($event)" checked>
+              <label style="margin-left: -40px;">NEW</label>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="margin-left: -66px;">
+              <input id="modfy" type="radio" name="optIt" value="modfy" (click)="OptGrp($event)">
+              <label style="margin-left: 0px;">MODIFY</label>
+          </div>
+      </div>
+      <div class="row ">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+              <label style="margin-bottom: -10px;">VA* SerialNumber</label>
+              <br>
+              <input id="serialNo1" type="text" [(ngModel)]="serialNo1" readonly style="background-color: gainsboro">
+              <input id="serialNo2" type="text" [(ngModel)]="serialNo2" (input)="getIndi($event);"(focus)="DispHelpMsg('serialNo2');"(focusout)="ClearHelp();">
+              <div id="serialNo" *ngIf="sshowIt1">
+                  <div (click)="autoClick1(f)" *ngFor="let f of fin">{{f}}</div>
+              </div>
+              <input id="serialNo3" type="text" [(ngModel)]="serialNo3"(focus)="DispHelpMsg('serialNo3');"(focusout)="ClearHelp();">
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-3 locInd2">
+              <label style="margin-bottom: -10px;">Location Indicator</label>
+              <br>
+              <input id="locInd1" type="text" [(ngModel)]="locInd1" style="outline: none;" (input)="getIndi($event);"(focus)="DispHelpMsg('locInd1');"(focusout)="ClearHelp();">
+              <div id="locInd" *ngIf="sshowIt2">
+                  <div (click)="autoClick2(f)" *ngFor="let f of fin">{{f}}</div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-3 dtIssue1">
+              <label style="margin-bottom: -10px;">Date/Time of Issuance</label>
+              <br>
+              <input id="dtIssue" type="text" [(ngModel)]="dtIssue" style="outline: none;" (focus)="DispHelpMsg('dtIssue');" (focusout)="ClearHelp();">
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 col-3 " *ngIf="sshow1" style="margin-left: -60px">
+              <label style="margin-bottom: -10px;">Optional Group</label>
+              <br>
+              <input id="optGrp" type="text" [(ngModel)]="optGrp" style="outline: none;"  (focus)="DispHelpMsg('optGrp');"(focusout)="ClearHelp();"> 
+          </div>
+      </div>
+      <div class="row" style="margin-top: 10px;">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <label>ASHTAM</label>
+              <input id="ashtam" type="text" [(ngModel)]="ashtam" style="outline: none;">
+          </div>
+      </div>
+      <div class="row mrows">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4" class="ABC1">
+              <label style="margin-bottom: -10px;">FIR Affected</label>
+              <br>
+              <label>A)</label>
+              <input id="fir1" type="text" [(ngModel)]="fir1" (input)="getIndi($event);" (focus)="DispHelpMsg('fir1');"(focusout)="ClearHelp();">
+              <div id="fir" *ngIf="sshowIt3">
+                  <div (click)="autoClick3(f)" *ngFor="let f of fin">{{f}}</div>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4" class="">
+              <label style="margin-bottom: -10px;">Date/Time of Eruption</label>
+              <br>
+              <label>B)</label>
+              <input id="eruption" type="text" [(ngModel)]="eruption" (focus)="DispHelpMsg('eruption');"(focusout)="ClearHelp();">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4" class="ABC3">
+              <label style="margin-bottom: -10px;">Volcano Name&Number</label>
+              <br>
+              <label>C)</label>
+              <input id="volcano" type="text" [(ngModel)]="volcano" (focus)="DispHelpMsg('volcano');"(focusout)="ClearHelp();">
+          </div>
+      </div>
+      <div class="row mrows">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4" class="ABC1">
+              <label style="margin-bottom: -10px;">Latitude/Longitude</label>
+              <br>
+              <label>D)</label>
+              <input id="latLong" type="text" [(ngModel)]="latLong" (focus)="DispHelpMsg('latLong');"(focusout)="ClearHelp();">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4" class="">
+              <label style="margin-bottom: -10px;">ColourCode</label>
+              <br>
+              <label>E)</label>
+              <input id="colorCode1" type="text" [(ngModel)]="colorCode1" (focus)="DispHelpMsg('colorCode1');"(focusout)="ClearHelp();">
+              <!-- <div id="colorCode">
+                  <div></div>
+              </div> -->
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4" class="ABC3">
+              <label style="margin-bottom: -10px;">Extent of Volcanic Ash</label>
+              <br>
+              <label style="margin-bottom: -10px;">F)</label>
+              <input id="ashXtnt" type="text" [(ngModel)]="ashXtnt" (focus)="DispHelpMsg('ashXtnt');"(focusout)="ClearHelp();">
+          </div>
+      </div>
+      <div class="row mrows">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4" class="ABC1">
+              <label style="margin-bottom: -10px;">Movement of Ashcloud</label>
+              <br>
+              <label>G)</label>
+              <input id="ashCloud" type="text" [(ngModel)]="ashCloud" (focus)="DispHelpMsg('ashCloud');"(focusout)="ClearHelp();">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4"  class="ABC1" >
+              <label style="margin-bottom: -10px;">Air Routes and Flight Levels Affected</label>
+              <br>
+              <label>H)</label>
+              <input id="airRoutes" type="text" [(ngModel)]="airRoutes" (focus)="DispHelpMsg('airRoutes');"(focusout)="ClearHelp();">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-4" class="ABC2">
+              <label style="margin-bottom: -10px;">Airspace Closure and Alt Routes</label>
+              <br>
+              <label>I)</label>
+              <input id="altRoutes" type="text" [(ngModel)]="altRoutes" (focus)="DispHelpMsg('altRoutes');"(focusout)="ClearHelp();">
+          </div>
+      </div>
+      <div class="row mrows">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12" class="J">
+              <label style="margin-bottom: -10px;">Source of Information</label>
+              <div class="row">
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-1" style="margin-right: -2rem">
+                      <label>J)</label>
+                  </div>
+                  <div class="col-lg-11 col-md-11 col-sm-11 col-11">
+                      <textarea id="srcInfo" rows="2" cols="60" [(ngModel)]="srcInfo" style="outline: none;" (focus)="DispHelpMsg('srcInfo');"(focusout)="ClearHelp();"></textarea>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12" class="K">
+              <label style="margin-bottom: -10px;">Remarks</label>
+              <div class="row">
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-1" style="margin-right: -2rem">
+                      <label>K)</label>
+                  </div>
+                  <div class="col-lg-11 col-md-11 col-sm-11 col-11">
+                      <textarea id="remarks" rows="2" cols="60" [(ngModel)]="remarks" style="outline: none;" (focus)="DispHelpMsg('remarks');"(focusout)="ClearHelp();"></textarea>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

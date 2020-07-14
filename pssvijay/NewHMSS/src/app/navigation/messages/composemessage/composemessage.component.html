@@ -1,0 +1,297 @@
+   
+<div style="background-color:gainsboro;width:1170px;border:1px solid gray;margin-left:-15px;margin-top:0px" class="container-fluid">
+    <div class="row">
+        <div class="col-7 ex1 table-responsive-sm " style="height: 50px;">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="StartOfMsg" class="lbl-style">&nbsp;&nbsp;Start of Msg:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="StartMsgType" [(ngModel)]="startMsgType" readonly="readonly">
+                        </td>
+                        <td>
+                            <label for="ChannelPrefix" class="lbl-style">&nbsp;&nbsp;Chnl Prefix:&nbsp;&nbsp;</label>
+                        </td>
+                        <td>
+                            <input type="text" id="ChannelPrefix" maxlength="3" [(ngModel)]="channelPrefix" readonly="readonly">
+                        </td>
+                        <td>
+                            <label for="SequenceNo" class="lbl-style">&nbsp;&nbsp;Csn No:&nbsp;&nbsp;</label>
+                        </td>
+                        <td>
+                            <input type="text" id="SequenceNo" [(ngModel)]="sqnNo" maxlength="5" readonly="readonly">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1 col-md-10">
+            <div class="row  tbl-bgcolor" style="margin-left:20px">
+                <label for="priority">Priority:</label>
+                <select name="singleSelect" class=" ng-pristine ng-untouched ng-valid ng-not-empty" id="ddlPriority" [(ngModel)]="priority">
+                    <option value="SS">SS</option>
+                    <option value="DD">DD</option>
+                    <option value="FF">FF</option>
+                    <option value="GG">GG</option>
+                    <option value="KK">KK</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row tbl-bgcolor table-responsive" style="margin-left:30px;">
+            <label for="DI"> AI:</label>
+            <tbody>
+                <tr>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI1" [(ngModel)]="DI1" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI1')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI2" [(ngModel)]="DI2" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI2')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI3" [(ngModel)]="DI3" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI3')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI4" [(ngModel)]="DI4" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI4')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI5" [(ngModel)]="DI5" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI5')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI6" [(ngModel)]="DI6" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI6')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI7" [(ngModel)]="DI7" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI7')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:20px;">
+                        <button type="button" class="btn btn-default btn-round btn-just-icon" data-toggle="modal" (click)="displayGroups()" style="height:20px;padding-top: 2px;padding-bottom: 2px;padding-right: 2px;padding-left: 2px;margin-bottom: 0px;margin-top: 0px;">
+                            <i class="material-icons">search</i>
+                            <div class="ripple-container"></div>
+                        </button>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr style="padding-bottom: 5px;">
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI8" [(ngModel)]="DI8" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI8')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI9" [(ngModel)]="DI9" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI9')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI10" [(ngModel)]="DI10" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI10')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI11" [(ngModel)]="DI11" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI11')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI12" [(ngModel)]="DI12" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI12')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI13" [(ngModel)]="DI13" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI13')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI14" [(ngModel)]="DI14" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI14')" autocomplete="off">
+                    </td>
+                </tr>
+                <tr style="padding-bottom: 5px;">
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI15" [(ngModel)]="DI15" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI15')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI16" [(ngModel)]="DI16" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI16')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI17" [(ngModel)]="DI17" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI17')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI18" [(ngModel)]="DI18" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI18')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI19" [(ngModel)]="DI19" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI19')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI20" [(ngModel)]="DI20" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI20')" autocomplete="off">
+                    </td>
+                    <td style="padding:2px;width:100px;">
+                        <input type="text" (paste)="$event.preventDefault()" (paste)="false" class="text-borderActive col-lg-12 txt-uppercase ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength"
+                            id="DI21" [(ngModel)]="DI21" maxlength="8" (keypress)="alphaOnly($event)" (blur)="checkLength('DI21')" autocomplete="off">
+                    </td>
+                </tr>
+            </tbody>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <table class="table" style="margin-bottom: 0px;">
+                <tbody>
+                    <tr>
+                        <td class="td-padding">
+                            <label for="DateTime" class="lbl-style">&nbsp;&nbsp;Filing Time:&nbsp;&nbsp;</label>
+                            <input type="text" id="DI22" [(ngModel)]="currentDateTime" maxlength="6" (keypress)="numOnly($event)">
+                        </td>
+                        <td class="td-padding">
+                            <label for="OriginIndicator" class="lbl-style">&nbsp;&nbsp;Origin Indicator:&nbsp;&nbsp;</label>
+                            <input type="text" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-maxlength" (keypress)="alphaNum($event)"
+                                id="OI23" [(ngModel)]="originIndicator" maxlength="8">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':groupdisplay}">
+    <div style="margin-left: 250px;  margin-right: 250px;  width: 900px;  margin-top: 120px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalGILabel">Group Indicators</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseHandled()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label for="DI" class="lbl-style">
+                            <b>Group List</b>
+                        </label>
+                        <select name="item"(change)="getAddressIndicators()" multiple style="height:100px;width:135px;" [(ngModel)]="selectedElement" (ngModelChange)="onChange($event)">
+                            <option *ngFor="let item of groupIndicators" [value]="item">{{item}}</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-10">
+                        <label for="DI" class="lbl-style">
+                            <b>Address Indicators</b>
+                        </label>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td *ngFor="let x of selectAI | slice:0:7" style="padding:2px;width:100px;">
+                                        <input type="text" id="x.key" [(ngModel)]="x.value" readonly="readonly">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td *ngFor="let x of selectAI | slice:7:14" style="padding:2px;width:100px;">
+                                        <input type="text" id="x.key" [(ngModel)]="x.value" readonly="readonly">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td *ngFor="let x of selectAI | slice:14" style="padding:2px;width:100px;">
+                                        <input type="text" id="x.key" [(ngModel)]="x.value" readonly="readonly">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal" (click)="onCloseHandled()">Cancel</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal" (click)="submitGroupIndicator()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fliud">
+<div class="row" >
+    <div class="col-lg-2 col-md-12">
+        <div class="card" style="margin-left:-15px;margin-top:5px">
+            <div class="card-header" data-background-color="default" style="padding:4px;height: 30px">Draft Messages</div>
+             <div class="card-content">
+                <table class="table" style="margin-left:10px">
+                    <tbody>
+                        <tr style="height:180px;">
+                            <select name="item" multiple style="height:180px;width:145px;" [(ngModel)]="selectedElement" (ngModelChange)="onChange($event)">
+                                <option *ngFor="let item of fileList" [value]="item.name">{{item.name}}</option>
+                            </select>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label> Save As:</label>
+                                <input type="text" id="FI26" [(ngModel)]="draftName">
+                            </div>
+                        </tr>
+                        <tr>
+                            <button type="button" class="btn btn-default  btn-sm btn btn-AliceBlue" data-toggle="tooltip" data-placement="top" title="Save The File"
+                                data-dismiss="modal" (click)="onTextFileSave()">
+                                <i class="material-icons">save</i>
+                            </button>&nbsp;
+                            <button type="button" class="btn btn-default  btn-sm btn btn-SlateGray " data-toggle="tooltip" data-placement="top" title="Delete The File"
+                                (click)="onTextFileDelete(selectedElement)">
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-9 col-md-12">
+        <textarea class="" style="margin-left:-15px" rows="18" cols="110" id="msgDraft" [(ngModel)]="draftMsg"></textarea>
+        <div style="margin-left:50px">
+            <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" id="btnSubmit" (click)="submit()">Submit</button>&nbsp;
+            <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" id="display" data-toggle="modal"
+                (click)="displayMessage()">Display</button>&nbsp;
+            <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" id="clear
+               " (click)="clear()">Clear</button>&nbsp;
+            <button type="button" class="btn btn-default  btn-sm btn btn-info" data-dismiss="modal" (click)="print()">&nbsp;Print</button>
+            <!-- <i class="material-icons">print</i>&nbsp;Print</button> -->
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseHandled()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <textarea class="" rows="20" cols="100" id="displaypopup" [(ngModel)]="displayData" style="text-transform:
+              uppercase;border:none;"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandled()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- (click)="onCloseHandled()" -->

@@ -1,0 +1,74 @@
+.fa-stack[data-count]:after{
+    position:absolute;
+    right:4%;
+    top:1%;
+    content: attr(data-count);
+    font-size:65%;
+    padding:.6em;
+    border-radius:999px;
+    line-height:.75em;
+    color: rgb(245, 244, 248);
+    background:rgba(255,0,0,.85);
+    text-align:center;
+    min-width:2em;
+    font-weight:bold;
+    cursor:pointer;
+  }
+  #id1{
+    color:olive;
+    
+  }
+  .dropdown-submenu {
+    position: relative;
+}
+ .dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-menu>a{
+  color:olive;
+}
+.dropdown-menu>a:hover{
+  background-color: rgba(240, 236, 236, 0.973);
+  color:black;
+  
+
+}
+.dropdown-menu>li>a{
+  color:olive;
+  font-size:medium;
+  padding-left: 20px
+  
+}
+.dropdown-menu>li:hover{
+  background-color: rgba(240, 236, 236, 0.973);
+color:black;
+}
+/*.collapse:not(.show){
+  display:none;
+}*/
+   
+
+
+@media (min-width: 576px) {
+  .container {
+      max-width:540px
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+      max-width:720px
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+      max-width:960px
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+      max-width:1140px
+  }
+}

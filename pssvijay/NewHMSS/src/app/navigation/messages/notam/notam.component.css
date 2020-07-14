@@ -1,0 +1,50 @@
+
+.kkk
+{
+    border: 2px solid gray;
+    margin-left: 20px;
+}
+
+.fir,.ntmcode,.traffic,.purpose,.scope,.llimit,.ulimit,.codrad
+{
+    margin-right:20px;
+}
+
+#A
+{
+    width: 200px;
+}
+#C
+{
+    width: 120px;
+}
+
+.abcd
+{
+    margin-top: 20px;
+
+}
+
+.locInd
+{
+    margin-left: -3px;
+}
+
+#D,#E,#F,#G
+{
+    margin-left: -20px;
+}
+
+#nm,#nr,#nc
+{
+    margin-left: -35px;
+}
+
+.notamn
+{
+    width: 150px;
+}
+.notamr,.notamc
+{
+    width: 240px;
+}

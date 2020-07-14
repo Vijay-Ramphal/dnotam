@@ -1,0 +1,208 @@
+
+
+
+<div class="row">
+  <div class="col-lg-8 col-md-12 table1" >
+    <table class="table table-sm table-hover table-striped" id="products-table"  >
+      <thead style="background-color: olive">
+        <tr>
+          <th scope="col">
+            <input type="radio" name="TransmitGroup">
+          </th>
+          <th scope="col">Route</th>
+          <th scope="col">Pending</th>
+          <th scope="col">Status</th>
+          <th scope="col">Diverted Route</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr scope="col" *ngFor="let row of routeStatus | slice:1">
+          <td>
+            <input type="radio" name="TransmitGroup" (click)='routeSelect(row)'> </td>
+          <td *ngFor="let column of row">
+            {{column}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row" style="width:1100px">
+    <div class="col-lg-6 col-md-12 table2">
+      <table class="table table-sm table-hover table-striped" id="products-table"  style="overflow-y:scroll">
+        <thead>
+          <tr>
+            <th scope="col">
+              <input type="checkbox" name="transmitData">
+            </th>
+            <th scope="col">CSNNO</th>
+            <th scope="col">Priority</th>
+            <th scope="col">OriginIndicator</th>
+            <th scope="col">MsgType</th>
+            <th scope="col">
+              <!-- <button id='SQkill' class="ti-trash" (click)="routeKillMessage()"></button> -->
+              <button class="btn ti-trash btn-simple btn-lg" (click)="routeKillMessage()" style="color:white;padding-left: 0px;padding-right: 0px;padding-top: 0px;padding-bottom: 0px;"
+                type="button"> </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of routeMessagesItems">
+            <td>
+              <input type="radio" name="transmitData" (click)='transmitQBoxChanged(entry)'> </td>
+            <td>{{entry.IncomingChannelPrefix}}{{entry.ChannelSequenceNumber}}</td>
+            <td>{{entry.MessagePriority}}</td>
+            <td>{{entry.OriginIndicator}}</td>
+            <td>{{entry.MessageType}}</td>
+            <td>
+              <button id='SQkill' class="btn ti-trash btn-simple btn-lg" (click)="routeKillMessage()" style="color:white;padding-left: 0px;padding-right: 0px;padding-top: 0px;padding-bottom: 0px;"
+                type="button"> </button>
+            </td>
+            <td class="td-actions text-right">
+              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                <i class="material-icons">edit</i>
+              </button>
+              <button type="button" rel="tooltip" title="Remove" id='tqkill' class="btn btn-danger btn-simple btn-xs" (click)="routeKillMessage()">
+                <i class=" material-icons">close</i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <div class="card-footer" style="padding-bottom:0px;padding-top:0px">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="" (click)="routePagination('previous')">Previous</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" (click)="routePagination('next')" href="">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div> -->
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <div class="nav">
+        <div class="nav-header" style="background-color:olive;color:white;width:450px;margin-top:10px;font-weight:bold"><span style="margin-left:10px">Message</span></div>
+       
+          <div class="selectedItems">
+            <textarea class="" rows="15" cols="45" id="incomment" [(ngModel)]="indraftMsg"></textarea>
+          </div>
+   
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 
+<div class="row">
+  <div class="col-lg-12 col-md-12">
+    <mat-table #table [dataSource]="dataSource">
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation();routeSelect(row)" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="RouteName">
+        <mat-header-cell *matHeaderCellDef style="font-size:14px"> RouteName </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.RouteName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="PendingMessages">
+        <mat-header-cell *matHeaderCellDef style="font-size:14px"> PendingMessages </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.PendingMessages}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="RouteStatus">
+        <mat-header-cell *matHeaderCellDef style="font-size:14px"> RouteStatus </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.RouteStatus}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="DivertedRouteName">
+        <mat-header-cell *matHeaderCellDef style="font-size:14px"> DivertedRouteName </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.DivertedRouteName}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+      </mat-row>
+    </mat-table>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-md-12" style="border:1px solid gray">
+      <mat-table #table [dataSource]="transmitDataSource">
+
+        <ng-container matColumnDef="select">
+          <mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="transmitSelection.hasValue() && isAllSelected()" [indeterminate]="transmitSelection.hasValue() && !isAllSelected()">
+            </mat-checkbox>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation();tqRowSelect(row)" (change)="$event ? transmitSelection.toggle(row) : null"
+              [checked]="transmitSelection.isSelected(row)">
+            </mat-checkbox>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="channelPrefix">
+          <mat-header-cell *matHeaderCellDef style="font-size:14px"> ChannelPrefix </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.channelPrefix}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="channelSeqNo">
+          <mat-header-cell *matHeaderCellDef style="font-size:14px"> ChannelSeqNo </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.channelSeqNo}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="priority">
+          <mat-header-cell *matHeaderCellDef style="font-size:14px"> Priority </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.priority}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="originIndicator">
+          <mat-header-cell *matHeaderCellDef style="font-size:14px"> OriginIndicator </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.originIndicator}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="messageType">
+          <mat-header-cell *matHeaderCellDef style="font-size:14px"> MessageType </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.messageType}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="tqdisplayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: tqdisplayedColumns;" (click)="transmitSelection.toggle(row)">
+        </mat-row>
+      </mat-table>
+      <div class="card-footer">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="" (click)="routePagination('previous')">Previous</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" (click)="routePagination('next')" href="">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <div class="card">
+        <div class="card-header" style="padding-left: 10px; padding-right: 0px; padding-top: 10px; padding-bottom: 10px;">Message</div>
+        <div class="card-content">
+          <div class="selectedItems">
+            <textarea class="" rows="15" cols="45" id="incomment" [(ngModel)]="indraftMsg" style="text-transform: uppercase;height:500px"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

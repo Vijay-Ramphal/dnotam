@@ -1,0 +1,407 @@
+<style>
+    input {
+        border: 1px solid rgb(192, 188, 188);
+        text-transform: uppercase;
+        width: 95px;
+        padding-left: 3px;
+        padding-right: 2px;
+        color: black;
+        font-weight: bold;
+    }
+
+
+    label {
+         color: black; 
+    }
+
+    select {
+        color: black;
+        font-weight: bold;
+    }
+
+    textarea {
+        text-transform: uppercase;
+        color: solid white;
+        font-weight: bold;
+        background-color: white;
+    }
+</style>
+
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="padding-left: 20px;">
+      <!-- <div class="col-lg-9 col-9" style="border:1px solid black;padding-top:20px;"> -->
+              <div class="row" style="padding-left: 5px;"> <!-- margin-left: 15px; -->
+                  <input type="radio" name="snowtam" value="new" (click)="optgrp($event)" checked > <!-- margin-right: -40px;margin-top: 5px; -->
+                  <label>NEW</label>
+                  <input type="radio" name="snowtam" value="modify" (click)="optgrp($event)" > <!-- margin-right: -40px;margin-top: 5px; -->
+                  <label>MODIFY</label>
+              </div>
+          <div class="row" style="padding-left: 5px;"> <!-- margin-left: 15px; -->
+              <!-- <div class="col-lg-12 col-12"> -->
+                  <div class="col-lg-3 col-3" > <!-- margin-left: -15px; -->
+                      <label class="snhdr1" style="margin-bottom:-10px;">Serial Number</label>
+                      <br>
+                      <input type="text" class="snhdrr1" [(ngModel)]="snhdr1" readonly style="background-color:gainsboro;">
+                      <input id="serialno" type="text" class="snhdrr2" [(ngModel)]="serialno1" maxlength="2" (keypress)="alphOnly($event)" (input)="getIndi($event);" (focus)="DispHelpMsg('serialno');"(focusout)="ClearHelp();">
+                      <div class="serialno" (mouseleave)="clear1()" *ngIf="showIt1">
+                          <div (click)="autoClick1(f)" *ngFor="let f of fin">{{f}}</div>
+                      </div>
+                      <input id="serialno2" type="text" class="snhdrr3" [(ngModel)]="serialno2" maxlength="4" (keypress)="numOnly($event)" (keyup)="autoFocus();assignVals1();" (focus)="DispHelpMsg('serialno2');"(focusout)="ClearHelp();">
+                  </div>
+                  <div class="col-lg-3 col-3" style="margin-left: 50px;margin-right: 40px;"> <!-- margin-left: -70px; -->
+                      <label class="snhdr2" style="margin-bottom:-10px;">Location Indicator</label>
+                      <br>
+                      <input id="locInd" type="text" [(ngModel)]="locInd" maxlength="4" (keypress)="alphOnly($event)" (input)="getIndi($event)" (keyup)="assignVals2();" (focus)="DispHelpMsg('locInd');"(focusout)="ClearHelp();">
+                      <div class="locInd" *ngIf="showIt2" (mouseleave)="clear2()">  <!--  -->
+                          <div (click)="autoClick2(f)" *ngFor="let f of fin">{{f}}</div>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-3" style="padding-left: 0px;padding-right: 0px;margin-right: 15px;"> <!-- margin-left: -70px; -->
+                      <label class="snhdr3" style="margin-bottom:-10px;">Date/Time of Observation</label>
+                      <br>
+                      <input id="dtObsv" type="text" [(ngModel)]="dtObserv" maxlength="8" (keypress)="numOnly($event)"(input)="getDtnTm($event);assignVals3();"(focus)="DispHelpMsg('dtObsv');"(focusout)="ClearHelp();">
+                  </div>
+                  <div class="col-lg-3 col-3"  *ngIf="optional"> <!-- margin-left: -70px; -->
+                      <label class="snhdr4" style="margin-bottom:-10px;">Optional Group</label>
+                      <br>
+                      <input id="optgroup" type="text" [(ngModel)]="optgroup" (focus)="DispHelpMsg('optgroup');"(focusout)="ClearHelp();">
+                  </div>
+              <!-- </div> -->
+          </div>
+          <div class="row" style="padding-left: 5px;"> <!-- padding-top: 15px; -->
+              <!-- <div class="col-lg-12 col-12" style="padding-top:10px;"> -->
+                  <!-- A and B come here -->
+                  <div class="col-lg-4 col-4">
+                      <br>
+                      <label>(</label>
+                      <label>SNOWTAM</label>
+                      <input id="snowtamno" type="text" [(ngModel)]="snowtamno" maxlength="4" (keypress)="numOnly($event)" style="width: 50px;" (focus)="DispHelpMsg('snowtamno');"(focusout)="ClearHelp();">
+                  </div>
+                  <div class="col-lg-4 col-4 aero">
+                      <label style="margin-bottom: -10px;">Aerodrome</label>
+                      <br>
+                      <label>A)</label>
+                      <input id="aerodrome" type="text" [(ngModel)]="aerodrome" maxlength="4" (keypress)="alphOnly($event)" (input)="getIndi($event)" (focus)="DispHelpMsg('aerodrome');"(focusout)="ClearHelp();">
+                      <div class="aerodrome" *ngIf="showIt3" (mouseleave)="clear3()">
+                          <div (click)="autoClick3(f)" *ngFor="let f of fin">{{f}}</div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-4 dtntm">
+                      <label style="margin-bottom: -10px;">Date and Time</label>
+                      <br>
+                      <label>B)</label>
+                      <input type="text" id="dtntm" [(ngModel)]="dtntm" maxlength="8" (keypress)="numOnly($event)" (input)="getDtnTm($event)" (focus)="DispHelpMsg('dtntm');"(focusout)="ClearHelp();">
+                  </div>
+              <!-- </div> -->
+          </div>
+          <!-- <div class="row"> background-color:gainsboro; -->
+              <div class="row" style="padding-left: 0px;padding-right: 0px;padding-top: 10px;">
+                  <!-- <div class="col-lg-12 col-12" style="padding-top:10px;"> -->
+                      <!-- Navs come here -->
+                      <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm" style="background-color:gainsboro;padding-left: 0px;padding-right: 0px;">
+                          <div class="collapse navbar-collapse">
+                              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                  <li class="nav-item">
+                                      <button style="background-color:gainsboro;padding-top: 37px;border:none;border-bottom: 1px solid rgb(209, 198, 198);"  class="nav-link"></button>
+                                  </li>
+                                  <li class="nav-item">
+                                      <button id="r1" style="background-color:gainsboro;padding: 10px; padding-left: 45px;padding-right: 45px;"  class="nav-link" value="one"   (click)="showElement($event);changeVisual($event);">Runway 1</button>
+                                  </li>
+                                  <li class="nav-item">
+                                      <button id="r2" style="background-color:gainsboro;padding: 10px; padding-left: 45px;padding-right: 45px;"  class="nav-link" value="two"   (click)="showElement($event);changeVisual($event);">Runway 2</button>
+                                  </li>
+                                  <li class="nav-item">
+                                      <button id="r3" style="background-color:gainsboro;padding: 10px; padding-left: 45px;padding-right: 45px;"  class="nav-link" value="three" (click)="showElement($event);changeVisual($event);">Runway 3</button>
+                                  </li>
+                                  <li class="nav-item">
+                                      <button style="background-color:gainsboro;padding-top: 37px; padding-left: 20px;padding-right: 0px;border:none;border-bottom: 1px solid rgb(209, 198, 198);"  class="nav-link"></button>
+                                  </li>
+                              </ul>
+                          </div>
+                      </nav>
+                   <!-- </div> -->
+              </div>
+              <div class="row" style="padding-left: 15px;padding-top:10px;margin-top: -15px;margin-left:-30px;margin-right:42px;" *ngIf="show1">
+                  <!-- <div class="col-lg-12 col-12" style="padding-top:10px;margin-top: -15px;"> -->
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Runway-I Designator</label>
+                          <br>
+                          <label>C)</label>
+                          <input id="runway1"type="text" [(ngModel)]="runway1" maxlength="2" (focus)="DispHelpMsg('runway1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;padding-right: 0px;">
+                          <label style="margin-bottom:-10px;">Cleared Runway Length</label>
+                          <br>
+                          <label>D)</label>
+                          <input id="runwaylen1"type="text" [(ngModel)]="runwaylen1" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('runwaylen1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;padding-right: 0px;">
+                          <label style="margin-bottom:-10px;">Cleared Runway Width</label>
+                          <br>
+                          <label>E)</label>
+                          <input id="runwaywidt1"type="text" [(ngModel)]="runwaywidt1" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('runwaywidt1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Depositions</label>
+                          <br>
+                          <label>F)</label>
+                          <input id="deposition1"type="text" [(ngModel)]="deposition1" (focus)="DispHelpMsg('deposition1');"(focusout)="ClearHelp();">
+                      </div>
+                  </div>
+                  <div class="row" style="padding-left: 15px;padding-top:10px;margin-top: -15px;margin-left:-30px;margin-right:42px;" *ngIf="show1">
+                  <!-- <div class="col-lg-12 col-12" style="padding-top:10px;"> -->
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Mean Depth</label>
+                          <br>
+                          <label>G)</label>
+                          <input id="mdepth1"type="text" [(ngModel)]="mdepth1"(focus)="DispHelpMsg('mdepth1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Friction</label>
+                          <br>
+                          <label>H)</label>
+                          <input id="friction1" type="text" class="friction" [(ngModel)]="friction1" (focus)="DispHelpMsg('friction1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Critical Snowbanks</label>
+                          <br>
+                          <label>J)</label>
+                          <input id="csnow1" type="text" [(ngModel)]="csnow1" (keypress)="alphaNum($event)" (focus)="DispHelpMsg('csnow1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Runway Lights</label>
+                          <br>
+                          <label>K)</label>
+                          <input id="rlight1" type="text" maxlength="5" [(ngModel)]="rlight1" (keypress)="alphaNum($event)" (focus)="DispHelpMsg('rlight1');"(focusout)="ClearHelp();">
+                      </div>
+                  </div>
+                  <div class="row" style="padding-left: 15px;padding-top:10px;margin-top: -15px;margin-left:-30px;margin-right:42px;" *ngIf="show1">
+                  <!-- <div class="col-lg-12 col-12" style="padding-top:10px;"> -->
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">F.C Planned</label>
+                          <br>
+                          <label>L)</label>
+                          <input  id="fcplanned1"type="text" [(ngModel)]="fcplanned1" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('fcplanned1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">F.C Expected</label>
+                          <br>
+                          <label>M)</label>
+                          <input id="fcexpected1"type="text" [(ngModel)]="fcexpected1" (keypress)="numOnly($event)"(focus)="DispHelpMsg('fcexpected1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Taxiway</label>
+                          <br>
+                          <label>N)</label>
+                          <input id="taxiway1"type="text" [(ngModel)]="taxiway1" (focus)="DispHelpMsg('taxiway1');">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Taxiway Snowbanks</label>
+                          <br>
+                          <label>P)</label>
+                          <input id="taxisnow1"type="text" [(ngModel)]="taxisnow1" (focus)="DispHelpMsg('taxisnow1');"(focusout)="ClearHelp();">
+                      </div>
+                  </div>
+              <!-- </div> -->
+              <div class="row" style="padding-left: 15px;padding-top:10px;margin-top: -15px;margin-left:-30px;margin-right:42px;" *ngIf="show2">
+                  <!-- <div class="col-lg-12 col-12" style="padding-top:10px;margin-top: -15px;"> -->
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Runway-II Designator</label>
+                          <br>
+                          <label>C)</label>
+                          <input id="runway2"type="text" [(ngModel)]="runway2" maxlength="2"(focus)="DispHelpMsg('runway1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;padding-right: 0px;">
+                          <label style="margin-bottom:-10px;">Cleared Runway Length</label>
+                          <br>
+                          <label>D)</label>
+                          <input id="runwaylen2"type="text" [(ngModel)]="runwaylen2" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('runwaylen1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;padding-right: 0px;">
+                          <label style="margin-bottom:-10px;">Cleared Runway Width</label>
+                          <br>
+                          <label>E)</label>
+                          <input id="runwaywidt2"type="text" [(ngModel)]="runwaywidt2" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('runwaywidt1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Depositions</label>
+                          <br>
+                          <label>F)</label>
+                          <input id="deposition2"type="text" [(ngModel)]="deposition2"(focus)="DispHelpMsg('deposition1');"(focusout)="ClearHelp();">
+                      </div>
+                  </div>
+                  <div class="row" style="padding-left: 15px;padding-top:10px;margin-top: -15px;margin-left:-30px;margin-right:42px;" *ngIf="show2">
+                  <!-- <div class="col-lg-12 col-12" style="padding-top:10px;"> -->
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Mean Depth</label>
+                          <br>
+                          <label>G)</label>
+                          <input id="mdepth2" type="text" [(ngModel)]="mdepth2"(focus)="DispHelpMsg('mdepth1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Friction</label>
+                          <br>
+                          <label>H)</label>
+                          <input id="friction2"type="text" class="friction" [(ngModel)]="friction2"(focus)="DispHelpMsg('friction1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Critical Snowbanks</label>
+                          <br>
+                          <label>J)</label>
+                          <input id="csnow2"type="text" [(ngModel)]="csnow2" (keypress)="alphaNum($event)" (focus)="DispHelpMsg('csnow1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Runway Lights</label>
+                          <br>
+                          <label>K)</label>
+                          <input id="rlight2"type="text" maxlength="5" [(ngModel)]="rlight2" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('rlight1');"(focusout)="ClearHelp();">
+                      </div>
+                  </div>
+                  <div class="row" style="padding-left: 15px;padding-top:10px;margin-top: -15px;margin-left:-30px;margin-right:42px;" *ngIf="show2">
+                  <!-- <div class="col-lg-12 col-12" style="padding-top:10px;"> -->
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">F.C Planned</label>
+                          <br>
+                          <label>L)</label>
+                          <input type="text" [(ngModel)]="fcplanned2" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('fcplanned1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">F.C Expected</label>
+                          <br>
+                          <label>M)</label>
+                          <input type="text" [(ngModel)]="fcexpected2" (keypress)="numOnly($event)"(focus)="DispHelpMsg('fcexpected1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Taxiway</label>
+                          <br>
+                          <label>N)</label>
+                          <input type="text" [(ngModel)]="taxiway2"(focus)="DispHelpMsg('taxiway1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Taxiway Snowbanks</label>
+                          <br>
+                          <label>P)</label>
+                          <input type="text" [(ngModel)]="taxisnow2" (focus)="DispHelpMsg('taxisnow1');"(focusout)="ClearHelp();">
+                      </div>
+                  </div>
+              <!-- </div> -->
+              <div class="row" style="padding-left: 15px;padding-top:10px;margin-top: -15px;margin-left:-30px;margin-right:42px;" *ngIf="show3">
+                  <!-- <div class="col-lg-12 col-12" style="padding-top:10px;margin-top: -15px;"> -->
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;padding-right: 0px;">
+                          <label style="margin-bottom:-10px;">Runway-III Designator</label>
+                          <br>
+                          <label>C)</label>
+                          <input type="text" [(ngModel)]="runway3" maxlength="2" (focus)="DispHelpMsg('runway1');">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;padding-right: 0px;">
+                          <label style="margin-bottom:-10px;">Cleared Runway Length</label>
+                          <br>
+                          <label>D)</label>
+                          <input type="text" [(ngModel)]="runwaylen3" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('runwaylen1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;padding-right: 0px;">
+                          <label style="margin-bottom:-10px;">Cleared Runway Width</label>
+                          <br>
+                          <label>E)</label>
+                          <input type="text" [(ngModel)]="runwaywidt3" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('runwaywidt1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Depositions</label>
+                          <br>
+                          <label>F)</label>
+                          <input type="text" [(ngModel)]="deposition3"(focus)="DispHelpMsg('deposition1');"(focusout)="ClearHelp();">
+                      </div>
+                  </div>
+                  <div class="row" style="padding-left: 15px;padding-top:10px;margin-top: -15px;margin-left:-30px;margin-right:42px;" *ngIf="show3">
+                  <!-- <div class="col-lg-12 col-12" style="padding-top:10px;"> -->
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Mean Depth</label>
+                          <br>
+                          <label>G)</label>
+                          <input type="text" [(ngModel)]="mdepth3" (focus)="DispHelpMsg('mdepth1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Friction</label>
+                          <br>
+                          <label>H)</label>
+                          <input type="text" class="friction" [(ngModel)]="friction3" (focus)="DispHelpMsg('friction1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Critical Snowbanks</label>
+                          <br>
+                          <label>J)</label>
+                          <input type="text" [(ngModel)]="csnow3" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('csnow1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Runway Lights</label>
+                          <br>
+                          <label>K)</label>
+                          <input type="text" maxlength="5" [(ngModel)]="rlight3" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('rlight1');"(focusout)="ClearHelp();">
+                      </div>
+                  </div>
+                  <div class="row" style="padding-left: 15px;padding-top:10px;margin-top: -15px;margin-left:-30px;margin-right:42px;" *ngIf="show3">
+                  <!-- <div class="col-lg-12 col-12" style="padding-top:10px;"> -->
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">F.C Planned</label>
+                          <br>
+                          <label>L)</label>
+                          <input type="text" [(ngModel)]="fcplanned3" (keypress)="alphaNum($event)"(focus)="DispHelpMsg('fcplanned1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">F.C Expected</label>
+                          <br>
+                          <label>M)</label>
+                          <input type="text" [(ngModel)]="fcexpected3" (keypress)="numOnly($event)"(focus)="DispHelpMsg('fcexpected1');"(focusout)="ClearHelp();">
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Taxiway</label>
+                          <br>
+                          <label>N)</label>
+                          <input type="text" [(ngModel)]="taxiway3" (focus)="DispHelpMsg('taxiway1');"(focusout)="ClearHelp();">
+                      </div>
+                       <div class="col-lg-3 col-md-3 col-sm-3 col-3" style="background-color:gainsboro;">
+                          <label style="margin-bottom:-10px;">Taxiway Snowbanks</label>
+                          <br>
+                          <label>P)</label>
+                          <input type="text" [(ngModel)]="taxisnow3" (focus)="DispHelpMsg('taxisnow1');"(focusout)="ClearHelp();">
+                      </div>
+                  </div>
+              <!-- </div> -->
+          <!-- </div> -->
+          <div class="row" style="padding-top:10px;">
+              <!-- <div class="col-lg-12 col-12" style="padding-top:10px;"> -->
+                  <!-- R S T come here -->
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                      <label style="margin-bottom:-10px;">Apron</label>
+                      <br>
+                      <label>R)</label>
+                      <input id="apron"type="text" style="width: 220px;" [(ngModel)]="apron" (focus)="DispHelpMsg('apron');"(focusout)="ClearHelp();">
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-6 nxtobsrv">
+                      <label style="margin-bottom:-10px;">Next Observation</label>
+                      <br>
+                      <label>S)</label>
+                      <input id="nxtObsrv"type="text" style="width: 220px;" [(ngModel)]="nxtObsrv" (focus)="DispHelpMsg('nxtObsrv');"(focusout)="ClearHelp();">
+                  </div>
+              <!-- </div> -->
+          </div>
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top:10px;">
+                  <label style="margin-bottom:-10px;">Remarks</label>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-1 col-1" style="padding-top:10px;">
+                  <label>T)</label>
+              </div>
+              <div class="col-lg-10 col-md-10 col-sm-10 col-10" style="margin-left:-45px;">
+                  <textarea id="remarks" rows="2" cols="70" [(ngModel)]="remarks"(focus)="DispHelpMsg('remarks');"(focusout)="ClearHelp();"></textarea>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-1 col-1" style="margin-left:10px;">
+                  <label>)</label>
+              </div>
+          </div>
+      <!-- </div> -->
+      
+  </div>
+
+  

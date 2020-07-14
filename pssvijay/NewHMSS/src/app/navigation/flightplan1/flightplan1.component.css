@@ -1,0 +1,145 @@
+#FPLCruisingLevel,#Cruising,#FPL1stAltAerodrome,#FPL1stAltAerodrome1
+{
+    margin: -40px;
+    
+}
+#FPLCruisingLevel
+{
+    margin-top: 6px;
+}
+#FPL2ndAltAerodrome,#FPL2ndAltAerodrome1,#Route1,#Route2
+{
+    margin: -85px;
+}
+
+
+#FPL2ndAltAerodrome,#FPL1stAltAerodrome,#FPL2ndAltAerodrome
+{
+    
+    margin-top: 5px;
+}
+#Aerodrome1,#CHG1stAltAerodrome
+{
+    margin: -45px;
+} 
+
+#CHG1stAltAerodrome
+{
+    
+    margin-top: 3px;
+}
+#Aerodrome2,#CHG2ndAltAerodrome
+{ 
+        margin: -105px;     
+}
+#CHG2ndAltAerodrome{
+  
+        margin-top: 3px; 
+}
+#addthis,#Remove{
+        margin-top: 20px;
+        margin-left: 45px;
+}
+#CHGFieldsAmendment
+{
+
+    margin-left: 55px;
+}
+#FildAmendment{
+    margin-left: 55px;   
+} 
+#b{
+    margin-left: 15px; 
+}
+ #cnl1,#CNL1stAltAerodrome
+{
+    
+    margin-left: -45px;
+    
+}
+#cnl2,#CNL2ndAltAerodrome
+{
+    margin-left: -85px;
+    
+}
+#dla1,#DLA1stAltAerodrome
+{
+ 
+    margin-left: -45px;
+    
+}
+#dla2,#DLA2ndAltAerodrome
+{
+    margin-left: -85px;
+    
+} 
+#dep1,#DEP1stAltAerodrome
+{
+    margin-left: -45px;
+    
+}
+#dep2,#DEP2ndAltAerodrome
+{
+    margin-left: -85px;
+    
+}
+#arr1,#ARRTime,#cru1,#CPLCruisingLevel,#cpl1,#CPL1stAltAerodrome,#arr1,#EST1stAltAerodrome,#cdn1,
+#CDN1stAltAerodrome,#acp1,#ACP1stAltAerodrome,#rqp1,#RQP1stAltAerodrome,#rqs1,#RQS1stAltAerodrome,#spl1,#SPL1stAltAerodrome
+{
+    margin-left: -45px;
+    
+}
+#arr2,#AltnAerodrome,#route1,#route2,#cpl2,#CPL2ndAltAerodrome,#arr2,
+#EST2ndAltAerodrome,#cdn2,#CDN2ndAltAerodrome,#acp2,#ACP2ndAltAerodrome,#rqp2,#RQP2ndAltAerodrome,#rqs2,#RQS2ndAltAerodrome,#spl2,#SPL2ndAltAerodrome
+{
+    margin-left: -85px;
+    
+}
+
+  .c
+{
+    
+    margin-top: 5px;
+  padding-bottom :5px;
+  margin-bottom: 3px;
+ /* border: 1px solid gray;  */
+background-color: gainsboro;
+
+
+}  
+#fpl8{
+    margin-left: 0px;
+}
+.p{
+    padding-bottom:1px 
+}
+.p1{
+    padding-bottom:0px ;
+    margin-bottom:0px;
+    padding-top: 0px;
+}
+
+
+   .b{
+    margin-top: 5px;
+    padding-bottom : 5px;
+  border: 1px solid gray;
+  background-color: gainsboro;
+}   
+.z{
+    border:1px solid gray;
+    margin-top: 2px;
+    /* background-color:#EEEEEE; */
+}
+.dd{
+    margin-left:22px;
+margin-right: -85px;
+
+}
+.vv{
+    
+
+    margin-left: 65px;
+   
+    
+}

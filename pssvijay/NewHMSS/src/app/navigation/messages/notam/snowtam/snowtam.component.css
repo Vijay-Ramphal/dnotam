@@ -1,0 +1,100 @@
+
+.snhdrr1
+{
+    width: 30px;
+}
+
+.snhdrr2
+{
+    width: 35px;
+    margin-left: -3px;
+    border-left: none;
+    border-right: none;
+}
+
+.snhdrr3
+{
+    width: 50px;
+    margin-left: -3px;
+}
+
+.friction
+{
+    width: 120px;
+}
+
+.aero
+{
+    margin-left: -35px;
+}
+
+.dtntm
+{
+    margin-left: -35px;
+}
+
+.nxtobsrv
+{
+    margin-left: -100px;
+}
+
+.serialno
+{
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    height: 200px;
+    width: 38px;
+    margin-left: 35px;
+    overflow-y: auto;
+    background-color:rgb(245, 250, 248);
+}
+
+.locInd
+{
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    height: 200px;
+    width: 90px;
+    margin-left: 35px;
+    overflow-y: auto;
+    background-color:rgb(245, 250, 248);
+}
+
+.aerodrome
+{
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    height: 200px;
+    width: 90px;
+    margin-left: 35px;
+    overflow-y: auto;
+    background-color:rgb(245, 250, 248);
+}
+
+#r1:focus, #r2:focus, #r3:focus
+{
+    outline-width: 0px;
+}
+#r1, #r2, #r3
+{
+    border: 1px solid rgb(209, 198, 198);
+}
+#r1
+{
+    border-bottom: none;
+}
+.locInd
+{
+    margin-left: -1px;
+}
+.serialno
+{
+    margin-left: 28px;
+}
+#help
+{
+    outline: none;
+}

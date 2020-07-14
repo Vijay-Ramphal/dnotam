@@ -1,0 +1,35 @@
+input {
+    border: 1px solid rgb(224, 217, 217);
+    text-transform: uppercase;
+    width: 100px;
+    padding-left: 3px;
+    padding-right: 2px;
+    color: black;
+    font-weight: bold;
+    font-size:12px;
+  }
+
+  label {
+    color: black;
+  }
+
+  select {
+    color: black;
+    font-weight: bold;
+  }
+
+  textarea {
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+
+
+
+  }
+
+  .abc {
+    margin-left: -15px;
+  }
+  input[type="text"]{
+    border-color: gray
+  }

@@ -1,0 +1,403 @@
+<style>
+  input {
+    text-transform: uppercase;
+    border:1px solid white;
+    width: 105px;
+    height:20px;
+    color: black;
+    /* font-weight: bold; */
+  }
+
+  label {
+    color: black;
+    font-size: 14px;
+  }
+
+  select {
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  textarea {
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+  }
+
+  #form-field-123
+  {
+    width: 200px;
+  }
+</style>
+
+
+
+<div class="row">
+  <div class="col-md-12 col-sm-12">
+    <!-- <strong>	<marquee style="color:green"> AERONAUTICAL INFORMATION MANAGEMENT SYSTEM (AIMS)</marquee></strong> -->
+    <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true" style="margin-bottom: 2px;">
+      <div class="panel panel-default" style="width:auto;margin-left:-15px;margin-top:-10px;">
+        <div class="panel-heading" style="background-color:#9e9e9e;padding: 0px 15px;height:28px" role="tab" id="headingOne">
+          <h4 class="panel-title" style="background-color:#9e9e9e;color:white">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> 
+             <span style="font-size:16px;color:white"> Message Retrival</span>
+             </a> 
+          </h4>
+        </div>
+        <div class=" " role="" aria-labelledby="">
+          <div class="panel-body" style="background-color:gainsboro;height:290px">
+            <form #dat="ngForm">
+              <div>
+                <div class="row">
+                  <div class="col-xs-1 col-lg-1 bbtm" style="margin-left:15px;">
+                    <label>
+                      <b>Msgs:</b>
+                    </label>
+                  </div>
+                  
+                  <div class=" col-lg-8 col-xs-4 ">
+                    <input type="radio" name="msgType" style="margin-left:-40px;height:15px" id="incomming" value="incomming" [(ngModel)]="msgRad">
+                    <label for="incomming"> InComming </label>
+                    <input type="radio" style="margin-left:-30px;height:15px"name="msgType" id="outgoing" value="outgoing" [(ngModel)]="msgRad">
+                    <label for="outgoing"> OutGoing </label>
+                 
+
+                      <label style="margin-right: 10px;margin-left: 60px;"> Date From :</label> 
+                      <label style="margin-right: 10px;margin-left: 150px;"> To :</label>
+                       <input id="dateofBirth" [(ngModel)]="dateofBirth" class="form-control" type="date" style="font-size:11px;font-weight:bold;margin-top:-30px;margin-left:610px;background-color:white;width: 150px;height:25px;padding-top: 0px;padding-bottom: 0px;"name="dateofBirth">
+                      <input id="dateofBirth1" [(ngModel)]="dateofBirth1" class="form-control" type="date" style="font-size:11px;font-weight:bold;padding-top: 0px;padding-bottom: 0px;margin-top:-25px;margin-left:430px;background-color:white;width: 150px;height:25px"name="dateofBirth1"> 
+                      <p style="margin-left:790px;margin-top:-30px">
+                          <b>MessageText</b>
+                      </p>
+                    </div> 
+                    
+                  </div>
+                        
+                      
+                    <!-- <select name="dayFrm" [(ngModel)]="daysFrm">
+                      <option *ngFor="let d of dd">{{d}}</option>
+                    </select>
+                    <select name="monthFrm" [(ngModel)]="monthsFrm">
+                      <option *ngFor="let d of mn">{{d}}</option>
+                    </select>
+                    <select name="yearFrm" [(ngModel)]="yearsFrm">
+                      <option *ngFor="let y of yr">{{y}}</option>
+                    </select> -->
+        
+               
+                    <!-- <select name="dayTo" [(ngModel)]="daysTo">
+                      <option *ngFor="let d of dd">{{d}}</option>
+                    </select>
+                    <select name="monthTo" [(ngModel)]="monthsTo">
+                      <option *ngFor="let d of mn">{{d}}</option>
+                    </select>
+                    <select name="yearTo" [(ngModel)]="yearsTo">
+                      <option *ngFor="let y of yr">{{y}}</option>
+                    </select> -->
+                <div class="row" style="margin-left:10px;margin-top:-10px">
+
+                <div class="col-xs-12"style="margin-top:-5px;padding-left:5px">
+
+                  <div class="col-xs-1 ">
+
+                    <label>
+                      <b>ChnlPrefix:</b>
+                    </label>
+            
+
+                  
+                    <input type="text" id="form-field-1-1"  style="margin-left:10px" placeholder="" maxlength="3" name="chPrefix" [(ngModel)]="chPrefix" (keypress)="alphaOnly($event)">
+
+                  
+                  
+                 
+                      <label style="padding:5px">
+                        <b>Priority</b>
+                      </label>
+
+                      <!--<select type="form-control" style="width:180px";"padding-bottom:10px">-->
+                      <select name="opt" [(ngModel)]="priority">
+                        <option *ngFor="let d of options">{{d}}</option>
+                      </select>
+                  
+                  
+                    <label style="padding:10px;margin-left:50px"> AI </label>
+                  
+                  
+                    <input type="text" id="form-field-1-1" style="margin-left:12px" placeholder="" maxlength="8" name="aiGet" [(ngModel)]="aiGet" (keypress)="alphaOnly($event)">
+                  
+                 
+                    <label style="padding:10px;margin-left:-5px"> OI </label>
+                  
+                
+                    <input type="text" id="form-field-1-1"  style="margin-left:5px" placeholder="" maxlength="8" name="ioGet" [(ngModel)]="ioGet" (keypress)="alphaOnly($event)">
+                 
+                   
+                      <input type="text" style="margin-left:160px;margin-top:-80px;font-size:12px;font-weight:bold;text-align:center"  id="form-field-123" placeholder="String-1" name="getStr1" [(ngModel)]="getStr1">
+                     
+                </div>
+                </div>
+                </div>
+
+                <div class="col-xs-12 " style="margin-top:-5px;padding-left:5px">
+                  <div class="col-xs-1" style="padding-left:15px">
+
+                    
+                      <label>
+                        <b>MsgNo:</b>
+                      </label>
+                    
+                  
+             
+                    <input type="text" id="form-field-1-1" style="margin-left:25px" placeholder="" maxlength="4" name="msgNoFrm" [(ngModel)]="msgNoFrm" (keypress)="numOnly($event)">
+
+
+                    <label style="padding:10px;margin-left:5px"> To </label>
+                
+                  
+                    <input type="text" id="form-field-1-1" style="margin-left:5px" placeholder="" maxlength="4" name="msgNoTo" [(ngModel)]="msgNoTo"  (keypress)="numOnly($event)">
+                
+           
+                    <label style="padding:10px;margin-left:-10px"> SKIP </label>
+                 
+                    <input type="text" id="form-field-1-1"  style="margin-left:10px" placeholder="" maxlength="4" name="skip1Frm" [(ngModel)]="skip1Frm"  (keypress)="numOnly($event)">
+        
+                    <label style="padding:10px;margin-left:-10px"> To </label>
+                  
+                  
+                    <input type="text" id="form-field-1-1" style="margin-left:10px"  placeholder="" maxlength="4" name="skip1To" [(ngModel)]="skip1To"  (keypress)="numOnly($event)">
+                  
+                  <input type="radio" style="margin-left:80px;height:15px"name="fileCreation" id="fileCreation1" value="AND" name="msgTxt" [(ngModel)]="msgText" placeholder="Text Field">
+                  <label> AND </label> 
+                  
+                  <input type="radio" style="margin-left:50px;height:15px"name="fileCreation" id="fileCreation10" value="OR" name="msgTxt" [(ngModel)]="msgText" placeholder="Text Field">
+                  <label> OR </label>
+                </div>
+              </div>
+                <div class="col-xs-12 chPrefi" style="margin-top:-5px">
+
+                  <div class="col-xs-1 "style="padding-left:15px">
+
+                   
+                      <label>
+                        <b>FilingTime: </b>
+                      </label>
+                    
+                 
+                    <input type="text" id="form-field-1-1" style="margin-left:10px;font-size:12px;font-weight:bold;text-align:center" placeholder="DDHHMM" maxlength="6" name="fillTmFrm" [(ngModel)]="fillTmFrm" (keypress)="dateOnly($event)">
+                  
+
+                    <label style="padding:10px;margin-left:2px"> To </label>
+                 
+                 
+                    <input type="text" id="form-field-1-1" style="margin-left:5px;font-size:12px;font-weight:bold;text-align:center" placeholder="DDHHMM" maxlength="6" name="fillTmTo" [(ngModel)]="fillTmTo"  (keypress)="dateOnly($event)">
+                  
+                  
+                    <label style="padding:10px;margin-left:-10px"> SKIP </label>
+                 
+                 
+                    <input type="text" id="form-field-1-1" style="margin-left:10px;font-size:12px;font-weight:bold;text-align:center" placeholder="DDHHMM" maxlength="6" name="skip2Frm" [(ngModel)]="skip2Frm"  (keypress)="dateOnly($event)">
+                  
+                    <label style="padding:10px;margin-left:-10px"> To </label>
+                 
+                  
+                    <input type="text" id="form-field-1-1" style="margin-left:10px;font-size:12px;font-weight:bold;text-align:center"  placeholder="DDHHMM" maxlength="6" name="skip2To" [(ngModel)]="skip2To"  (keypress)="dateOnly($event)">
+                  
+                    
+                        <input type="text" style="margin-left:170px;margin-top:-80px;font-size:12px;font-weight:bold;text-align:center"  id="form-field-123" placeholder="String-2" name="getStr2" [(ngModel)]="getStr2">
+                      
+                  </div>
+                </div>
+
+                <div class="col-xs-12 chPrefi"style="margin-top:-5px;padding-left:5px">
+
+                  <div class="col-xs-1 chPrefi"style="padding-left:15px">
+
+                    <label>
+                      
+                        <b>Rx Time:</b>
+                      
+                    </label>
+               
+                    <input type="text" id="form-field-1-1" style="margin-left:18px;font-size:12px;font-weight:bold;text-align:center" placeholder="DDHHMM" maxlength="6" name="rxTmFrm" [(ngModel)]="rxTmFrm" (keypress)="dateOnly($event)">
+
+                
+                    <label style="padding:10px;margin-left:2px"> To </label>
+                 
+                  
+                    <input type="text" id="form-field-1-1" style="margin-left:10px;font-size:12px;font-weight:bold;text-align:center" placeholder="DDHHMM" maxlength="6" name="rxTmTo" [(ngModel)]="rxTmTo" (keypress)="dateOnly($event)">
+                  
+                  
+                    <label style="padding:10px;margin-left:-10px"> SKIP </label>
+               
+               
+                    <input type="text" id="form-field-1-1"  style="margin-left:10px;font-size:12px;font-weight:bold;text-align:center" placeholder="DDHHMM" maxlength="6" name="skip3Frm" [(ngModel)]="skip3Frm" (keypress)="dateOnly($event)">
+              
+                    <label style="padding:10px;margin-left:-10px"> To </label>
+              
+                    <input type="text" id="form-field-1-1"  style="margin-left:10px;font-size:12px;font-weight:bold;text-align:center" placeholder="DDHHMM" maxlength="6" name="skip3To" [(ngModel)]="skip3To" (keypress)="dateOnly($event)">
+                    
+                 
+                  </div>
+
+                </div>
+
+                <div class="col-xs-12 chPrefi"style="margin-top:-5px;padding-left:5px">
+
+                  <div class="col-xs-1 chPrefi" style="padding-left:15px">
+
+                   
+                      <label>
+                        <b>Tx Time:</b>
+                      
+                    </label>
+              
+                    <input type="text" id="form-field-1-1" style="margin-left:20px;font-size:12px;font-weight:bold;text-align:center" placeholder="DDHHMM" maxlength="6" name="txTmFrm" [(ngModel)]="txTmFrm" (keypress)="dateOnly($event)">
+
+                  
+
+                    <label style="padding:10px;margin-left:2px"> To </label>
+                 
+                    <input type="text" id="form-field-1-1"  style="margin-left:8px;font-size:12px;font-weight:bold;text-align:center"placeholder="DDHHMM" maxlength="6" name='txTmTo' [(ngModel)]="txTmTo" (keypress)="dateOnly($event)">
+                 
+                    <label style="padding:10px;margin-left:-10px"> SKIP </label>
+                 
+                    <input type="text" id="form-field-1-1"  style="margin-left:10px;font-size:12px;font-weight:bold;text-align:center" placeholder="DDHHMM" maxlength="6" name="skip4Frm" [(ngModel)]="skip4Frm" (keypress)="dateOnly($event)">
+                 
+                    <label style="padding:10px;margin-left:-10px"> To </label>
+              
+                    <input type="text" id="form-field-1-1"style="margin-left:10px;font-size:12px;font-weight:bold;text-align:center"  placeholder="DDHHMM" maxlength="6" name="skip4To" [(ngModel)]="skip4To" (keypress)="dateOnly($event)">
+                  </div>
+
+                </div>
+
+
+                <div class="col-xs-12" style="margin-top:0px;padding-left:5px">
+
+                  <div class="col-xs-1 " style="padding-left:15px">
+
+                      <label>
+                        <b>MsgType:</b>
+                      
+                    </label>
+                 
+                  <div class="col-xs-8 kk" style="margin-top:-25px"></div>
+                      <div class="form-group" style="margin-left: 32px">
+                      <input type="radio"style="margin-left:-5px;height:15px" name="fileCreation3" id="fileCreation3" [(ngModel)]="msgType" value="NOTAM" placeholder="Text Field">
+                      <label> NOTAM </label> &nbsp;
+                      <input type="radio" style="margin-left:-10px;height:15px"name="fileCreation3" id="fileCreation4" [(ngModel)]="msgType" value="FPL" placeholder="Text Field">
+                      <label> FPL </label>&nbsp; &nbsp;
+                      <input type="radio"style="margin-left:-10px;height:15px" name="fileCreation3" id="fileCreation5" [(ngModel)]="msgType" value="MET" placeholder="Text Field">
+                      <label> MET </label>&nbsp; &nbsp;
+                      <input type="radio" style="margin-left:-10px;height:15px"name="fileCreation3" id="fileCreation6" [(ngModel)]="msgType" value="SVC" placeholder="Text Field">
+                      <label> SVC </label> &nbsp;&nbsp;
+                      <input type="radio" style="margin-left:-10px;height:15px"name="fileCreation3" id="fileCreation7" [(ngModel)]="msgType" value="ALL" placeholder="Text Field">
+                      <label> ALL </label>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                      <!-- <input type="radio" name="fileCreation" id="outgoing" placeholder="Text Field"><label> FPL </label> -->
+                      <!-- <button type="submit" class="dd" style="background-color:#9585BF;color:white;margin-top:-50px" (click)=" onpageshow()">Get Message</button> -->
+                      
+                      <button type="submit" class="dd" style="background-color:#9585BF;color:white;margin-top:-50px" (click)=" sendMessage();onpages1how()">Get Message</button>
+                      
+                      <button class="clear" style="background-color:#9585BF;color:white;margin-top:-50px" (click)="clear()">Clear</button>
+                    
+                    </div>
+                  </div>
+
+                  
+
+                </div>
+
+
+                <div class="col-xs-12 toggle-panel "style="border:1px solid gray;height:350px;margin-top:10px" *ngIf="show"   
+                                     [hidden]="hidden" [style.visibility]="visible">
+                 
+
+
+                  
+                
+                <div class="row" >
+                    
+
+                    <div class="row" style="margin-top:4px">
+                        
+                                      <div class="col-xs-12">
+                        
+                                        <div class="row" style="margin-left:15px;">
+                                          <div class="col-lg-6 col-md-12">
+                                              
+                                                  <div class="card-header" style="padding-top: 5px;padding-bottom: 5px;background-color:aliceblue;color:black;height:27px;font-weight:bold">List of Messages</div>
+                                                  <div class="card-content">
+                                                      <table class="table table-sm">
+                                                          <thead class="text-warning"style="font-size:14px;margin-left:-15px">
+                                                              <tr>
+                                                                  <th><input type="checkbox" style="height:15px"[checked]="isAllChecked()" (change)="checkAll($event)" id="checkIn" name="all"></th>
+                                                                  <th>CSNNO</th>
+                                                                  <th>Priority</th>
+                                                                  <th>ORIGIN Indicator</th>
+                                                                  <th>Actions</th>
+                                                              </tr>
+                                                          </thead>
+                                                          <tbody>
+                                                              <tr *ngFor="let inboxItem of inBoxList; let i = index" style="cursor: pointer">
+                                                                  <td>
+                                                                      <input type="checkbox" value="{{inboxItem.channelPrefix}}{{inboxItem.channelSeqNo}}" [(ngModel)]="inboxItem.state" (click)="inBoxChanged($event)">
+                                                                  </td>
+                                                                  <td>{{inboxItem.channelPrefix}}{{inboxItem.channelSeqNo}}</td>
+                                                                  <td>{{inboxItem.priority}}</td>
+                                                                  <td>{{inboxItem.originIndicator}}</td>
+                                                                  <td class="td-actions text-right">
+                                                                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                                                                        <i class="material-icons" (click)="editMessage('inboxItem')">edit</i>
+                                                                  </button>
+                                                                      <button type="button" rel="tooltip" title="Print Task" class="btn btn-primary btn-simple btn-xs">
+                                                                      <i class="material-icons" (click)="print()">print</i>
+                                                                  </button>
+                                                                      <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                                        <i class="material-icons" (click)="deleteMessage('inboxItem')">close</i>
+                                                                  </button>
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </div>
+                                                  <!-- <div class="card-footer redPg"style="padding-top: 5px;padding-bottom:0px">
+                                                      <nav aria-label="...">
+                                                          <ul class="pagination justify-content-center">
+                                                              <li class="page-item disabled">
+                                                                  <a class="page-link" href="" (click)="setPage(i-1,$event)" tabindex="-1">Previous</a>
+                                                              </li>
+                                                              <li class="page-item" *ngFor="let item of pages; let i =index">
+                                                                  <a class="page-link active" href="" (click)="setPage(i,$event)" [ngClass]="{'active' : i== page}">{{i}}</a>
+                                                              </li>
+                                                              <li class="page-item disabled">
+                                                                  <a class="page-link" href="" (click)="setPage(i+1,$event)">Next</a>
+                                                              </li>
+                                                          </ul>
+                                                      </nav>
+                                                  </div>
+                                             -->
+                                          </div>
+                                          <div class="col-lg-6 col-md-12">
+                                              <div class="card">
+                                                  <div class="card-header" style="padding-top: 5px;padding-bottom: 5px;background-color:black;color:white;height:27px;font-weight:bold;">Message</div>
+                                                  <div class="card-content"style="height:249px">
+                                                      <div class="selectedItems">
+                                                          <textarea class="jkl" rows="10" cols="54" id="incomment" [(ngModel)]="indraftMsg" style="text-transform: uppercase;"></textarea>
+                                                          <button class="Retransmit"><b>Retransmit</b></button>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                    </div>
+                                  </div>
+
+
+                            
+
+                                      </div>
+
+                                    </div>
+                
